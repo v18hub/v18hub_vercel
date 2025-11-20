@@ -13,6 +13,7 @@ interface Offer {
   startDate: string;
   duration: string;
   skills: string;
+  skill_tags?: string[];
 }
 
 const Explore_Cohort = () => {
@@ -86,19 +87,33 @@ const Explore_Cohort = () => {
             .filter(
               (each) => each.tag.trim().toLowerCase() === tag.toLowerCase()
             )
-            .map((each) => ({
-              cohort_id: each.cohort_id,
+            .map(each => ({
+              cohort_id: String(each.cohort_id),
+              partner_id: "",
               imageSrc: each.imageSrc,
               tag: each.tag,
               title: each.title,
-              description: each.description,
-              cohortTitle: each.cohortTitle,
+              short_description: each.description ?? "",
+              description: each.description ?? "",
               startDate: each.startDate,
               duration: each.duration,
-              skills: Array.isArray((each as any).skill_tags)
-                ? (each as any).skill_tags.join(", ")
-                : "",
-            }));
+
+              goal: [],
+              dataset: "",
+              methods: [],
+              milestones: [],
+              deliverables: [],
+              documents_list: "",
+              key_learnings: "",
+              social_engagement: "",
+              evaluations: "",
+              skill_tags: Array.isArray(each.skill_tags) ? each.skill_tags : [],
+              fees: 0,
+              current_version: "",
+              is_approved: true,
+              created_at: "",
+              updated_at: "",
+            }))
 
           if (associatedCards.length === 0) return null;
 
@@ -114,7 +129,7 @@ const Explore_Cohort = () => {
                 {tag}
               </h2>
               <div className="w-[85vw] p-10">
-                <OfferCarousel cohort={associatedCards} />
+                <OfferCarousel cohorts={associatedCards} />
               </div>
             </div>
           );

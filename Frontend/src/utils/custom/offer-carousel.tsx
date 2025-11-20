@@ -34,22 +34,22 @@ interface OfferCarouselProps {
   cohorts: Cohort[];
 }
 
-const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
+const OfferCard = memo(({ cohorts }: { cohorts: Cohort }) => {
   return (
     <div className="relative group flex-shrink-0 w-full sm:w-80 lg:w-96">
       {/* Wrap the entire card in a Link to make it clickable */}
-      <Link to={`/cohort/${cohort.cohort_id}`} className="block h-full">
+      <Link to={`/cohort/${cohorts.cohort_id}`} className="block h-full">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] h-full flex flex-col">
           {/* Image */}
           <div className="relative h-48 overflow-hidden flex-shrink-0">
             <img
-              src={cohort.imageSrc}
-              alt={cohort.title}
+              src={cohorts.imageSrc}
+              alt={cohorts.title}
               className="w-full h-full object-cover"
               loading="lazy"
             />
             <div className="absolute top-4 left-4 bg-[#526B61] text-white px-4 py-1.5 rounded-full text-sm font-bold">
-              {cohort.tag}
+              {cohorts.tag}
             </div>
           </div>
 
@@ -57,26 +57,26 @@ const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
           <div className="p-7 flex flex-col flex-grow justify-between">
             <div>
               <h3 className="text-2xl font-bold text-[#294b3c] mb-3 leading-tight">
-                {cohort.title}
+                {cohorts.title}
               </h3>
               <p className="text-[#294b3c] text-sm mb-6 line-clamp-3 leading-relaxed">
-                {cohort.short_description}
+                {cohorts.short_description}
               </p>
 
               <div className="flex justify-between text-sm mb-8">
                 <div>
                   <p className="text-gray-600">Starts</p>
-                  <p className="font-bold text-[#294b3c]">{cohort.startDate}</p>
+                  <p className="font-bold text-[#294b3c]">{cohorts.startDate}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-gray-600">Duration</p>
-                  <p className="font-bold text-[#294b3c]">{cohort.duration}</p>
+                  <p className="font-bold text-[#294b3c]">{cohorts.duration}</p>
                 </div>
               </div>
             </div>
 
             {/* Centered Button */}
-            {cohort.is_approved && (
+            {cohorts.is_approved && (
               <div className="flex justify-center">
                 <button className="px-10 py-4 bg-[#526B61] hover:bg-[#294b3c] text-white rounded-2xl font-bold text-lg tracking-wide transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:-translate-y-1">
                   Enroll Now
@@ -181,7 +181,7 @@ const OfferCarousel = ({ cohorts }: OfferCarouselProps) => {
                 !isScrollable && index === cohorts.length - 1 ? "mr-8 lg:mr-16" : ""
               }`}
             >
-              <OfferCard cohort={cohort} />
+              <OfferCard cohorts={cohort} />
             </div>
           ))}
         </div>

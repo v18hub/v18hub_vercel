@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   motion,
   useTransform,
@@ -45,7 +45,7 @@ export const AnimatedTooltip: React.FC<AnimatedTooltipProps> = ({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <div
           className="group relative -mr-4"
           key={item.name}

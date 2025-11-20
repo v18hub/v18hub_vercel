@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Privacy_Policy = () => {
 
@@ -44,9 +43,12 @@ const Privacy_Policy = () => {
 
                         <div className="text-[#526B61] text-lg leading-relaxed font-medium">
                             <ul className="list-disc pl-6 space-y-2">
-                                {each[1].map((point: string, i: number) => (
-                                    <li key={i}>{point}</li>
-                                ))}
+                                {Array.isArray(each[1])
+                                    ? each[1].map((point, i) => (
+                                        <li key={i}>{point}</li>
+                                    ))
+                                    : <li>{each[1]}</li>
+                                }
                             </ul>
                         </div>
                     </div>

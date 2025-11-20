@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { OfferCarousel } from "../../utils/custom/offer-carousel";
+import OfferCarousel from "../../utils/custom/offer-carousel";
 import Loading from "../../utils/ui/Loading/Loading";
 
 interface Offer {
@@ -114,7 +114,7 @@ const Explore_Cohort = () => {
                 {tag}
               </h2>
               <div className="w-[85vw] p-10">
-                <OfferCarousel offers={associatedCards} />
+                <OfferCarousel cohort={associatedCards} />
               </div>
             </div>
           );

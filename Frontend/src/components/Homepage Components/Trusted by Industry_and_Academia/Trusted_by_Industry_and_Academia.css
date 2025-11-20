@@ -1,0 +1,25 @@
+@keyframes autoScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 3rem)); /* Adjust gap: 3rem = gap-12 */
+  }
+}
+
+.scroller {
+  mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+  overflow: hidden;
+}
+
+.scroller_inner {
+  display: flex;
+  animation: autoScroll 12s linear infinite;
+  width: max-content;
+}
+
+/* Optional: Pause on hover */
+.scroller_inner:hover {
+  animation-play-state: paused;
+}

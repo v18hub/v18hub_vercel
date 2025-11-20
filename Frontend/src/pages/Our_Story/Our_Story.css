@@ -1,0 +1,15 @@
+/* @keyframes autoScroll {
+    to {
+        transform: translateX(calc(-50% - 0.5rem));
+    }
+}
+.AboutUs_scroller{
+    mask: linear-gradient(90deg,
+            transparent,
+            white 2%,
+            white 98%,
+            transparent);
+}
+.AboutUs_scroller_inner {
+    animation: autoScroll 30s linear infinite;
+} */

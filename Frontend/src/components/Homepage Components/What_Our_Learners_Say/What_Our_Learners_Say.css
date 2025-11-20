@@ -1,0 +1,22 @@
+/* src/components/Homepage Components/What_Our_Learners_Say/What_Our_Learners_Say.css */
+@keyframes autoScroll {
+  to {
+    transform: translateX(calc(-50% - 1.5rem)); /* 1.5rem = gap-6 */
+  }
+}
+
+/* Scroller container – mask hides the edges */
+.scroller {
+  mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+}
+
+/* The moving row */
+.animate-scroll {
+  display: flex;
+  animation: autoScroll 40s linear infinite;
+}
+
+/* Pause + zoom on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

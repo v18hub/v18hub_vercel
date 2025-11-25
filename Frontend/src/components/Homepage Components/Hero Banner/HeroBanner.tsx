@@ -81,7 +81,7 @@ const HeroBanner = () => {
               to="/explore-cohorts"
               className="px-8 py-4 bg-[#526B61] hover:bg-[#25473A] text-white font-bold text-lg rounded-xl transition-all active:scale-95 shadow-lg hover:shadow-xl"
             >
-              Explore Cohorts
+              Get Started
             </Link>
           </div>
         </ScrollAnimation>

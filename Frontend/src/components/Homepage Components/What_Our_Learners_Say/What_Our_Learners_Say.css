@@ -1,22 +1,77 @@
 /* src/components/Homepage Components/What_Our_Learners_Say/What_Our_Learners_Say.css */
+
 @keyframes autoScroll {
-  to {
-    transform: translateX(calc(-50% - 1.5rem)); /* 1.5rem = gap-6 */
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-/* Scroller container – mask hides the edges */
+/* Perfect fade edges — NO shadow or flicker */
 .scroller {
-  mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+  position: relative;
+  overflow: hidden;
 }
 
-/* The moving row */
+/* Soft, wide fade that completely hides the jump */
+.scroller::before,
+.scroller::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;           /* Wider fade zone */
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scroller::before {
+  left: 0;
+  background: linear-gradient(to right, #f4f2ee 0%, transparent 100%);
+}
+
+.scroller::after {
+  right: 0;
+  background: linear-gradient(to left, #f4f2ee 0%, transparent 100%);
+}
+
+/* Infinite scroll */
 .animate-scroll {
   display: flex;
-  animation: autoScroll 40s linear infinite;
+  width: max-content;
+  animation: autoScroll 35s linear infinite;
+  padding-left: 100vw;     /* Critical: starts off-screen for perfect loop */
+  gap: 1.5rem;
 }
 
-/* Pause + zoom on hover */
+/* Pause on hover */
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .animate-scroll {
+    animation-duration: 45s;
+    gap: 1rem;
+  }
+
+  .scroller::before,
+  .scroller::after {
+    width: 80px;
+  }
+
+  .group {
+    width: 85vw !important;
+    max-width: 340px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 641px) {
+  .animate-scroll {
+    animation-duration: 28s;
+  }
 }

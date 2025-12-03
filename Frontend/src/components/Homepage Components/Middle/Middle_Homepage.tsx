@@ -67,7 +67,7 @@ const Middle_Homepage = () => {
           {/* Left panel */}
           <div className="w-full lg:max-w-[530px] flex flex-col gap-8 items-center text-center lg:text-left">
             <ScrollAnimation delay={0.1}>
-              <div className="text-[#f4f2ee] text-3xl sm:text-4xl lg:text-5xl leading-snug flex-wrap">
+              <div className="text-[#6A1F1B] text-3xl sm:text-4xl lg:text-5xl leading-snug flex-wrap">
                 FIND YOUR PLACE IN OUR{" "}
                 <span className="text-[#294b3c] font-caveat text-5xl sm:text-6xl lg:text-7xl leading-tight">
                   ecosystem

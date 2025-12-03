@@ -57,15 +57,25 @@ const HeroBanner = () => {
       {/* HERO TOP */}
       <div className="mb-8 sm:mb-12 lg:mb-20">
         <ScrollAnimation delay={0.2}>
-          <div className="h-[12rem] sm:h-[16rem] md:h-[20rem] lg:h-[20rem] text-[#294b3c] font-[300] text-[6rem] sm:text-[5rem] md:text-[10rem] lg:text-[12rem] flex justify-center items-center font-roboto px-4 lg:mx-[75px]">
-            v18hub
+          <div className="relative h-[14rem] sm:h-[18rem] md:h-[24rem] lg:h-[28rem] overflow-hidden lg:mx-[75px]">
+            <video
+              className="absolute inset-0 w-full h-full object-contain scale-[0.92]"
+              autoPlay
+              loop
+              muted
+              playsInline
+              src="/Video/HomePage/hero_image.mp4"
+              poster="/Video/HomePage/v18hub-logo-poster.jpg"
+            >
+              Your browser does not support video.
+            </video>
           </div>
         </ScrollAnimation>
 
         <div className="flex flex-col text-center lg:mx-[75px] mb-6 lg:mb-10">
           <ScrollAnimation delay={0.3}>
             <div className="text-[1rem] sm:text-[2rem] lg:text-[2.5rem] font-[600] text-[#294b3c] leading-tight">
-              Knowledge grows only when put in ACTION
+              Knowledge grows through DOING
             </div>
           </ScrollAnimation>
           <ScrollAnimation delay={0.4}>
@@ -79,9 +89,10 @@ const HeroBanner = () => {
           <div className="px-4 lg:mx-[75px] flex justify-center">
             <Link
               to="/explore-cohorts"
-              className="px-8 py-4 bg-[#526B61] hover:bg-[#25473A] text-white font-bold text-lg rounded-xl transition-all active:scale-95 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 whitespace-nowrap bg-[#a5b6ae] hover:bg-[#294b3c] text-[#6A1F1B] hover:text-[#f6f5ec] font-semibold text-xl sm:text-3xl rounded-xl transition-all active:scale-95 shadow-lg hover:shadow-xl"
             >
               Get Started
+              <span className="text-3xl font-bold">→</span>
             </Link>
           </div>
         </ScrollAnimation>

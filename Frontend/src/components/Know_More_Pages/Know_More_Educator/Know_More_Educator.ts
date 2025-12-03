@@ -16,19 +16,19 @@ export const Know_More_Educator = {
     {
       inner_title: "Onboard Your Students",
       inner_desc: "Register and connect your students to the chosen cohorts. Our cohorts are designed to support students academic needs, including brief exam breaks.",
-      img: "/Images/onboard.webp",
+      img: "/Images/onboard.png",
     },
     {
       inner_title: "Empower Students",
       inner_desc:
         "Monitor student performance, track progress across cohorts, and stay updated on upcoming opportunities.",
-      img: "/Images/empower_students.webp",
+      img: "/Images/empower_students.png",
     },
   ],
   cta: [
     {
       button1: { label: "Explore Cohorts", href: "/explore-cohorts" },
-      //button2: { label: "Join as an Educator", href: "/registration/educator" },
+      // button2: { label: "Join as an Educator", href: "/registration/educator" },
     },
   ],
 };

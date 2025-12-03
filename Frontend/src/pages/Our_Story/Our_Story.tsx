@@ -36,7 +36,7 @@ const Our_Story = () => {
               <div className="flex flex-row sm:flex-col gap-5 w-full sm:w-[40%]">
                 <div className="w-full h-32 sm:h-[8rem] rounded-2xl shadow-md overflow-hidden">
                   <img
-                    src="/Images/empower_students.webp"
+                    src="/Images/empower_students.png"
                     alt="Students building projects"
                     className="w-full h-full object-cover"
                   />
@@ -54,7 +54,7 @@ const Our_Story = () => {
             {/* Bottom wide image */}
             <div className="w-full h-40 sm:h-48 rounded-2xl shadow-md overflow-hidden">
               <img
-                src="/Images/pitch_for_usecase.png"
+                src="/Images/our_story.png"
                 alt="Community collaboration"
                 className="w-full h-full object-cover"
               />

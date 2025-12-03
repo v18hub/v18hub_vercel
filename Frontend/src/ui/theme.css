@@ -1,0 +1,22 @@
+/* src/ui/theme.css */
+.p-inputtext,
+.p-password .p-inputtext,
+.p-password input {
+  background-color: #f4f2ee !important;
+  border: 1.5px solid #c7c3bc !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  transition: all 0.2s ease;
+}
+
+.p-inputtext:focus,
+.p-password input:focus {
+  outline: none !important;
+  border-color: #526B61 !important;
+  box-shadow: 0 0 0 3px rgba(82, 107, 97, 0.15) !important;
+}
+
+.p-invalid {
+  border-color: #e24c4c !important;
+}

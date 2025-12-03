@@ -24,13 +24,13 @@ export const Know_More_Learner = {
       inner_title: "Learn by Doing",
       inner_desc:
         "Collaborate with peers, engage with mentors, and build solutions that matter. Document your work through code, evaluations, observations, and flow diagrams on GitHub - and proudly earn the certificate you truly worked hard for.",
-      img: "/Images/learn_by_doing.webp",
+      img: "/Images/learn_by_doing.png",
     },
   ],
   cta: [
     {
       button1: { label: "Explore Cohorts", href: "/explore-cohorts" },
-      //button2: { label: "Join as a Learner", href: "/registration/learner" },
+      // button2: { label: "Join as a Learner", href: "/registration/learner" },
     },
   ],
 };

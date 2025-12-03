@@ -25,10 +25,10 @@ export const Know_More_IndustryPartner = {
       img: "/Images/track_projects.png",
     },
   ],
-  // cta: [
-  //   {
-  //     button1: { label: "Become a Partner", href: "/registration/industry_partner" },
-  //     button2: { label: "Create Project", href: "/ourcommunity/industry-partners/create-project" },
-  //   },
-  // ],
+  cta: [
+    {
+      // button1: { label: "Become a Partner", href: "/registration/industry_partner" },
+      // button2: { label: "Create Project", href: "/ourcommunity/industry-partners/create-project" },
+    },
+  ],
 };

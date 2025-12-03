@@ -29,12 +29,12 @@ const CohortDetails = () => {
 
   //const ZOHO_FORM_URL = `https://forms.zohopublic.com/yourorg/form/Register/formperma/xxxx?cohort_id=${cohort.cohort_id}`;
   let ZOHO_FORM_URL = `https://forms.zohopublic.com/yourorg/form/Register/formperma/xxxx?cohort_id=${cohort.cohort_id}`;
-  if (cohort.cohort_id === "1") {
-    ZOHO_FORM_URL = "https://shorturl.at/NxDvz";
-  } else if (cohort.cohort_id === "2") {
-    ZOHO_FORM_URL = "https://shorturl.at/2uoN3";
+  if (cohort.cohort_id === "2") {
+    ZOHO_FORM_URL = "https://tinyurl.com/AgricultureCommodityPred";
   } else if (cohort.cohort_id === "3") {
-    ZOHO_FORM_URL = "https://shorturl.at/XOJtv";
+    ZOHO_FORM_URL = "https://tinyurl.com/AIAgentMedicalInsuarnce";
+  } else if (cohort.cohort_id === "4") {
+    ZOHO_FORM_URL = "https://tinyurl.com/OralLeisonRegistration";
   }
 
 
@@ -320,7 +320,16 @@ const CohortDetails = () => {
         </div>
       </footer> */}
 
-      
+      {/* Hide scrollbar but keep functionality */}
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };

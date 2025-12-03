@@ -20,7 +20,7 @@ const Why_Us = () => {
       desc: "Mentors from academia and industry provide continuous feedback and guidance.",
     },
     {
-      img: "/Images/evaluation1.png",
+      img: "/Images/evaluation.png",
       title: "Evaluate & Showcase",
       desc: "Work is documented on GitHub, reviewed by mentors, and certified for outcomes.",
     },
@@ -34,8 +34,8 @@ const Why_Us = () => {
         <h2 className="text-4xl md:text-5xl font-semibold mb-3">
           Why v18hub?
         </h2>
-        <p className="mt-12 text-[#294b3c] text-xl font-semibold max-w-3xl mx-auto">
-          Knowledge grows only when put into action.
+        <p className="mt-12 text-[#294b3c] text-3xl font-semibold max-w-3xl mx-auto">
+          Knowledge grows through DOING
         </p>
       </section>
 
@@ -45,19 +45,27 @@ const Why_Us = () => {
 
           {/* LEFT - Overlapping images */}
           <div className="w-full md:w-[45%] flex items-center justify-center">
-            <div className="relative w-[40vh] h-[38vh]">
+            <div className="relative w-[78vw] max-w-[52vh] h-[36vh] -mt-4 
+                            md:w-[64vh] md:h-[44vh] md:-mt-20 
+                            mx-auto">  {/* ← mx-auto prevents horizontal overflow */}
+
               {/* Main Image */}
               <div className="absolute inset-0 w-full h-full rounded-2xl hover:scale-105 shadow-lg overflow-hidden">
                 <img
-                  src="/Images/retrieved_chunks.png"
+                  src="/Images/why_us_mentor.png"
                   alt="Track projects and progress"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Overlapping Image */}
-              <div className="absolute bottom-[-2rem] right-[-2rem] w-[28vh] h-[28vh] rounded-2xl shadow-xl overflow-hidden border-4 border-white hover:scale-105 transition-transform duration-300">
+
+              {/* Overlapping Image – pulled in on mobile, dramatic on desktop */}
+              <div className="absolute bottom-[-3rem] left-[-1rem] 
+                              md:bottom-[-7rem] md:left-[-6rem] 
+                              w-[26vh] h-[26vh] 
+                              rounded-2xl shadow-xl overflow-hidden border-4 border-white 
+                              hover:scale-105 transition-transform duration-300 z-10">
                 <img
-                  src="/Images/Data_Flow.png"
+                  src="/Images/why_us_industry.png"
                   alt="Project dashboard preview"
                   className="w-full h-full object-cover"
                 />
@@ -156,18 +164,18 @@ const Why_Us = () => {
             <div
               key={i}
               className={`
-                group relative p-10 rounded-2xl border-2 border-[#a5b6ae] 
+                group relative p-10 rounded-2xl border-2 border-[#294b3c] 
                 bg-transparent hover:bg-[#294b3c] transition-all duration-300 
                 text-left flex flex-col
               `}
             >
               {/* Title */}
-              <h4 className="text-2xl font-bold text-[#294b3c] group-hover:text-[#f6f5ec] mb-4 transition-colors duration-300">
+              <h4 className="text-3xl font-semibold text-[#6A1F1B] group-hover:text-[#f6f5ec] mb-4 transition-colors duration-300">
                 {card.title}
               </h4>
 
               {/* Description */}
-              <p className="text-base md:text-lg text-[#294b3c] group-hover:text-[#f6f5ec] leading-relaxed transition-colors duration-300">
+              <p className="text-base md:text-lg text-[#6A1F1B] group-hover:text-[#f6f5ec] leading-relaxed transition-colors duration-300">
                 {card.desc}
               </p>
 
@@ -177,7 +185,7 @@ const Why_Us = () => {
           ))}
         </div>
 
-        <p className="mt-12 text-[#294b3c] text-xl max-w-3xl mx-auto">
+        <p className="mt-12 text-[#6A1F1B] font-semibold text-xl max-w-3xl mx-auto">
           Together, we’re building a continuous learning and innovation ecosystem.
         </p>
       </section>

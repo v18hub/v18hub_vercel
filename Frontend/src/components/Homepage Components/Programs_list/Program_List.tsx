@@ -51,7 +51,7 @@ const Program_List = () => {
                 onMouseLeave={() => setHover_selected(null)}
                 className={`
                   block rounded-2xl py-5 px-3 transition-transform duration-300 active:scale-95
-                  shadow-sm shadow-[#ff751f]
+                  shadow-sm shadow-[#6A1F1B]
                   lg:m-12
                   ${hover_selected === each.type_of 
                     ? "lg:bg-[#294b3c] lg:text-[#f4f2ee] lg:scale-105 lg:px-8" 

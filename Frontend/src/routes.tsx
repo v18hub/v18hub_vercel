@@ -5,6 +5,7 @@ import Student_Register from "./components/RegistrationPage/Student Register/Stu
 import Mentor_Register from "./components/RegistrationPage/Mentor Register/Mentor_Register.tsx";
 import Educator_Register from "./components/RegistrationPage/Educator Register/Educator_Register.tsx";
 import Industry_Partner from "./components/RegistrationPage/Industry_Partner Register/Industry_Partner.tsx";
+import Image_Credits from "./pages/Privacy_Policy/Image_Credits.tsx";
 
 const Placeholder = ({ title }: { title: string }) => (
   <div className="min-h-screen flex items-center justify-center text-2xl text-gray-600">
@@ -43,6 +44,7 @@ export default function AppRoutes() {
       <Route path="/about/our-story" element={<Our_Story />} />
       <Route path="/about/career" element={<Placeholder title="Career" />} />
       <Route path="/about/contact-us" element={<Contact_Us />} />
+      <Route path="/credits" element={<Image_Credits />} />
     </Routes>
   );
 }

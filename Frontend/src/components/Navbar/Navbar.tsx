@@ -75,10 +75,13 @@ const Navbar = () => {
       <Link 
         to="/" 
         onClick={() => setClickSelected(null)} 
-        className="flex items-center gap-1.5 font-[800] text-[1.3rem] hover:opacity-80 transition-opacity"
-      >
-        <Home className="w-6 h-6" />
-        <span className="hidden sm:inline"></span>
+        className="flex items-center hover:opacity-80 transition-opacity"
+        >
+          <img 
+            src="/logo/logo_v18hub_header.png" 
+            alt="v18hub logo" 
+            className="h-10 w-auto object-contain" 
+          />
       </Link>
 
       {/* ------------------ DESKTOP MENU ------------------ */}

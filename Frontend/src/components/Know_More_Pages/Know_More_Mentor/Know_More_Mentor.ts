@@ -27,7 +27,7 @@ export const Know_More_Mentor = {
   cta: [
     {
       button1: { label: "Explore Cohorts", href: "/explore-cohorts" },
-      //button2: { label: "Join as a Mentor", href: "/registration/mentor" },
+      // button2: { label: "Join as a Mentor", href: "/registration/mentor" },
     },
   ],
 };

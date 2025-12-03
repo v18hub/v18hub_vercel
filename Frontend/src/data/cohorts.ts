@@ -34,7 +34,11 @@ export const cohortsData: Cohort[] = [
     title: "Predicting Agricultural Commodity Prices",
     short_description: "A predictive analytics project that forecasts next week’s commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
+<<<<<<< HEAD
     startDate: "Dec 24, 2025",
+=======
+    startDate: "Dec 22, 2025",
+>>>>>>> 9e3c0716f6bfe229cb6da84471f303f49a0b0980
     duration: "8 Weeks",
     goal: [
             "Predict next week modal prices for key crops and send community alerts to help farmers choose sale timing and market, reducing vulnerability to price volatility. The project aims to:",
@@ -256,7 +260,11 @@ export const cohortsData: Cohort[] = [
     social_engagement: "Create awareness materials (infographics, pamphlets) on the value of AI in oral health. Publish a blog with project summaries, visuals, insights, code. Conduct peer-learning sessions",
     evaluations: "Model performance: Accuracy, Precision, Recall, F1, ROC-AUC. Explainability quality: Do Grad-CAM heatmaps highlight relevant mouth regions consistently?.",
     skill_tags: ["Deep Learning", "Convolutional Neural Networks (CNNs)", "Medical Image Analysis", "Data Preprocessing and Augmentation", "Model Evaluation and Benchmarking", "Python", "TensorFlow / PyTorch", "Transfer Learning"],
+<<<<<<< HEAD
     fees: 6999,
+=======
+    fees: 7999,
+>>>>>>> 9e3c0716f6bfe229cb6da84471f303f49a0b0980
     current_version: "v1.0",
     is_approved: true,
     created_at: "2025-10-14T00:00:00Z",

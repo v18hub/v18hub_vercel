@@ -32,7 +32,7 @@ export default function Student_Register() {
     handleSubmit,
     control,
     formState: { errors, isSubmitting },
-    setError,
+    // setError,
     reset,
   } = useForm<StudentFormData>({
     resolver: zodResolver(studentSchema),

@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { Mail, Linkedin, Check } from "lucide-react";
 
-const LinkedIn_Card = ({ user }) => {
+// ADD THIS INTERFACE
+interface User {
+  name: string;
+  contact: string;
+  email?: string;
+  linkedinUrl: string;
+  avatar: string;
+  coverImage: string;
+}
+
+// Now TypeScript knows exactly what `user` contains
+const LinkedIn_Card: React.FC<{ user: User }> = ({ user }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
     if (user.email) {
       navigator.clipboard.writeText(user.email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500); // reset after 1.5s
+      setTimeout(() => setCopied(false), 1500);
     }
   };
 

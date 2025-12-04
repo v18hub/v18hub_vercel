@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const ValidatedInput = ({ register, error, type = "text", placeholder }: Props) => {
-  const { name, onChange, onBlur, ref } = register;
+  const { name } = register;
 
   if (type === "password") {
     return (

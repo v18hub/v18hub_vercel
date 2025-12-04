@@ -11,7 +11,7 @@ const Mentor_Register = () => {
     const { register, handleSubmit } = useForm();
 
     // Country / State lists
-    const countries = ["India", "Other"];
+    // const countries = ["India", "Other"];
     const indianStates = [
         "Andhra Pradesh",
         "Delhi",

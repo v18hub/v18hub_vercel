@@ -1,9 +1,9 @@
 // CohortCard.tsx
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export function CohortCard({ cohort }: { cohort: any }) {
   return (
-    <Link href={`/cohorts/${cohort.cohort_id}`}>
+    <Link to={`/cohorts/${cohort.cohort_id}`}>
       <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 
                       flex flex-col h-full">          {/* ← important */}
         {/* Image - fixed height */}

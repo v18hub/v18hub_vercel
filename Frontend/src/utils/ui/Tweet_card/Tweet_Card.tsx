@@ -1,3 +1,11 @@
+interface TweetCardProps {
+  name: string;
+  username: string;
+  text: string;
+  firstLetter: string;
+  className?: string;
+}
+
 export const Tweet_card = ({
   name,
   username,

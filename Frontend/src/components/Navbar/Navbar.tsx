@@ -1,6 +1,6 @@
 // src/components/Navbar/Navbar.tsx
 import { Menu, X } from "lucide-react";
-import { Home } from "lucide-react";
+// import { Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 

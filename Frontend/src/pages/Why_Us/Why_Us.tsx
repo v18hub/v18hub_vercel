@@ -78,18 +78,18 @@ const Why_Us = () => {
             {/* <h3 className="text-3xl md:text-4xl font-semibold mb-6">What We Do?</h3> */}
             <p className="text-base md:text-lg leading-relaxed">
               <span className="font-semibold">We are the only platform in India</span> creating such an ecosystem and 
-              introducing <span className="font-semibold">project-based learning at this depth and scale — 
-              connecting learners, mentors, educators, and industry through real-world problem solving.</span>.
+              introducing <span className="font-semibold">project-based learning at this depth and scale - 
+              connecting learners, mentors, educators, and industry through real-world problem solving.</span>
               <br /><br />
               At v18hub, we bring <span className="font-semibold">academia and industry closer</span> through a 
-              <span className="font-semibold">collaborative, project-based learning model.</span>
+              <span className="font-semibold"> collaborative, project-based learning model.</span>
               <br /><br />
-              v18hub is a <span className="font-semibold">cohort-based platform</span> where real problems — 
+              v18hub is a <span className="font-semibold">cohort-based platform</span> where real problems - 
               <span className="font-semibold">either shared by industry partners and innovation-driven organizations 
-              or derived from publicly available real-world challenges</span> — are turned into structured learning cohorts.
+              or derived from publicly available real-world challenges</span> - are turned into structured learning cohorts.
               <br /><br />
-              Through collaborative, hands-on cohorts, students build end-to-end solutions, document their work like real engineers, 
-              and graduate with portfolios that demonstrate practical skills — not just certificates.
+              Through collaborative, hands-on cohorts, <span className="font-semibold">students build end-to-end solutions, document their work like real engineers, </span>
+              and graduate with portfolios that demonstrate practical skills - not just certificates.
               <br /><br />
               Our mission is to <span className="font-semibold">empower the next generation of AI talent with confidence, clarity, 
               and tech-ready capabilities.</span>

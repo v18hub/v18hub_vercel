@@ -75,23 +75,24 @@ const Why_Us = () => {
 
           {/* RIGHT Text */}
           <div className="w-full md:w-[50%] text-[#294b3c]">
-            <h3 className="text-3xl md:text-4xl font-semibold mb-6">What We Do?</h3>
+            {/* <h3 className="text-3xl md:text-4xl font-semibold mb-6">What We Do?</h3> */}
             <p className="text-base md:text-lg leading-relaxed">
-              At <span className="font-semibold">v18hub</span>, we bridge the gap between academia and industry through a
-              collaborative, project-based learning model.
+              <span className="font-semibold">We are the only platform in India</span> creating such an ecosystem and 
+              introducing <span className="font-semibold">project-based learning at this depth and scale — 
+              connecting learners, mentors, educators, and industry through real-world problem solving.</span>.
               <br /><br />
-              v18hub is a <span className="font-semibold">cohort-based platform</span> where real problems - either
-              shared by industry partners and innovation-driven organizations or
-              curated from public domain challenges - are turned into <span className="font-semibold">structured
-              learning cohorts.</span>
+              At v18hub, we bring <span className="font-semibold">academia and industry closer</span> through a 
+              <span className="font-semibold">collaborative, project-based learning model.</span>
               <br /><br />
-              Learners work on authentic problems, gaining real exposure to how
-              challenges are approached and built into solutions.
+              v18hub is a <span className="font-semibold">cohort-based platform</span> where real problems — 
+              <span className="font-semibold">either shared by industry partners and innovation-driven organizations 
+              or derived from publicly available real-world challenges</span> — are turned into structured learning cohorts.
               <br /><br />
-              Here, <span className="font-semibold">students don't just learn - they build, test, and solve.</span><br /><br />
-              <span className="font-semibold">We are the only platform in India creating such an ecosystem and 
-                introducing project-based learning at this depth and scale, connecting learners, mentors, educators
-                and industry through real-world problem solving.</span>
+              Through collaborative, hands-on cohorts, students build end-to-end solutions, document their work like real engineers, 
+              and graduate with portfolios that demonstrate practical skills — not just certificates.
+              <br /><br />
+              Our mission is to <span className="font-semibold">empower the next generation of AI talent with confidence, clarity, 
+              and tech-ready capabilities.</span>
             </p>
           </div>
         </div>

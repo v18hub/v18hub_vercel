@@ -1,11 +1,9 @@
-// import { InputText } from 'primereact/inputtext';
+// src/components/Our_Story.tsx
 import "./Our_Story.css";
 
 const Our_Story = () => {
-
   return (
     <div className="bg-[#F6F5ED] w-full font-open-sans">
-
       {/* MAIN CONTAINER */}
       <div className="sm:mx-[75px] mx-5 flex flex-col gap-16">
 
@@ -16,32 +14,32 @@ const Our_Story = () => {
           </h1>
         </div>
 
-        {/* ====================== OUR STORY – WITH 4 MOCK IMAGES ====================== */}
+        {/* ====================== OUR STORY – FIXED IMAGE SIZES ====================== */}
         <div className="flex flex-col lg:flex-row justify-center items-start gap-10 bg-[#F6F5ED] py-16 px-6 rounded-2xl">
 
-          {/* LEFT: 4 MOCK IMAGE GRID (kept exactly as you provided) */}
+          {/* LEFT: 4 MOCK IMAGE GRID – FIXED ASPECT RATIOS */}
           <div className="flex flex-col gap-5 w-full max-w-lg mt-16">
             <div className="flex flex-col sm:flex-row gap-5">
 
-              {/* Left tall image */}
-              <div className="w-full sm:w-[60%] h-64 sm:h-80 rounded-2xl shadow-md overflow-hidden">
+              {/* Left tall image – FIXED 3:4 aspect ratio */}
+              <div className="w-full sm:w-[60%] aspect-[3/4] rounded-2xl shadow-md overflow-hidden bg-gray-200">
                 <img
-                  src="/Images/industry_powered_cohorts.png"
+                  src="/Images/our_story2.png"
                   alt="Industry-powered cohorts"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Two stacked smaller images */}
+              {/* Two stacked smaller images – FIXED 1:1 square */}
               <div className="flex flex-row sm:flex-col gap-5 w-full sm:w-[40%]">
-                <div className="w-full h-32 sm:h-[8rem] rounded-2xl shadow-md overflow-hidden">
+                <div className="w-full aspect-square rounded-2xl shadow-md overflow-hidden bg-gray-200">
                   <img
-                    src="/Images/empower_students.png"
+                    src="/Images/looking_submission.jpeg"
                     alt="Students building projects"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="w-full h-32 sm:h-[8rem] rounded-2xl shadow-md overflow-hidden">
+                <div className="w-full aspect-square rounded-2xl shadow-md overflow-hidden bg-gray-200">
                   <img
                     src="/Images/ai_agent.jpg"
                     alt="Mentor guidance"
@@ -51,8 +49,8 @@ const Our_Story = () => {
               </div>
             </div>
 
-            {/* Bottom wide image */}
-            <div className="w-full h-40 sm:h-48 rounded-2xl shadow-md overflow-hidden">
+            {/* Bottom wide image – FIXED 16:5 aspect ratio */}
+            <div className="w-full aspect-[16/5] rounded-2xl shadow-md overflow-hidden bg-gray-200">
               <img
                 src="/Images/our_story.png"
                 alt="Community collaboration"
@@ -84,9 +82,8 @@ const Our_Story = () => {
           </div>
         </div>
 
-        {/* ====================== OUR VALUES – STARTS AT LEFT EDGE (ORANGE ARROW) ====================== */}
+        {/* ====================== OUR VALUES – STARTS AT LEFT EDGE ====================== */}
         <div className="bg-[#F9F6F1] py-16 px-6 rounded-2xl">
-
           <div className="max-w-5xl mx-auto">
 
             {/* HEADING – starts at the left edge */}
@@ -116,7 +113,7 @@ const Our_Story = () => {
               <div className="bg-[#a5b6ae] p-6 rounded-xl shadow-md">
                 <h3 className="text-[#294b3c] font-semibold text-xl mb-3">Purpose</h3>
                 <p>
-                  To make learning experiential, affordable  - transforming curiosity into capability through real-world problem solving.
+                  To make learning experiential, affordable - transforming curiosity into capability through real-world problem solving.
                 </p>
               </div>
 
@@ -130,25 +127,6 @@ const Our_Story = () => {
             </div>
           </div>
         </div>
-
-        {/* ====================== EMAIL SUBSCRIPTION ====================== */}
-        {/* <div className="flex flex-col items-center gap-5 pb-12">
-          <h1 className="text-[#537367] font-medium text-lg sm:text-3xl text-center max-w-3xl">
-            Provide your email address to subscribe for the v18Hub report
-          </h1>
-          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-            <InputText
-              id="email"
-              type="email"
-              keyfilter="email"
-              placeholder="user@example.com"
-              className="w-full"
-            />
-            <button className="transition-transform p-3 rounded-lg bg-[#526B61] hover:bg-[#25473A] text-white active:scale-95 font-medium whitespace-nowrap">
-              Submit
-            </button>
-          </div>
-        </div> */}
 
       </div>
     </div>

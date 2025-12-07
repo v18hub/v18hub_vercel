@@ -80,7 +80,7 @@ const HeroBanner = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={0.4}>
             <div className="text-[#546f61] text-center font-[550] text-base sm:text-lg lg:text-xl mt-4 max-w-5xl mx-auto px-4 leading-relaxed">
-              India’s only project-based learning platform where industry partners, educators, and mentors come together to help learners solve real-world problems with real guidance.
+              India’s only project-based learning platform where industry partners, educators, and mentors come together to help learners solve real-world problems with expert-led guidance.
             </div>
           </ScrollAnimation>
         </div>

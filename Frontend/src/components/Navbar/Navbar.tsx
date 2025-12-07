@@ -1,16 +1,10 @@
 // src/components/Navbar/Navbar.tsx
 import { Menu, X } from "lucide-react";
-// import { Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// URL-safe slug generator: lowercases, trims, removes punctuation, collapses to hyphens
 const toSlug = (s: string) =>
-  s
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")  // ← same as Explore_Cohort
-    .replace(/[^a-z0-9\-]/g, "");
+  s.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9\-]/g, "");
 
 const Navbar = () => {
   const [hoverSelected, setHoverSelected] = useState<string | null>(null);
@@ -18,18 +12,14 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const location = useLocation();
 
-  // Unified logic for nav click behavior
   const handleNavClick = (title: string, hasSubmenu: boolean) => {
     if (!hasSubmenu) {
-      // Direct highlight for single-level routes
       setClickSelected(title);
       setHoverSelected(null);
       setDrawerOpen(false);
     }
-    // For multi-level menus, submenu click handles it
   };
 
-  // Define navbar items (display labels preserved, fixed spelling)
   const menuItems: [string, string[]?][] = [
     ["OurCommunity", ["Learners", "Educators", "Industry-Partners", "Mentors"]],
     ["Why-Us?"],
@@ -38,12 +28,8 @@ const Navbar = () => {
     ["About", ["Our-Story", "Career", "Contact-Us"]],
   ];
 
-  // Highlight current page on route change
   useEffect(() => {
-    // Normalize current path (lowercase, no trailing slash)
     const current = location.pathname.toLowerCase().replace(/\/+$/, "");
-
-    // Special case mapping
     if (current.startsWith("/registration/")) {
       setClickSelected("OurCommunity");
       setHoverSelected(null);
@@ -51,7 +37,6 @@ const Navbar = () => {
       return;
     }
 
-    // Match against normalized slugs (parent or child)
     const match = menuItems.find(([title, subs]) => {
       const parent = `/${toSlug(title)}`;
       if (subs && subs.length) {
@@ -67,24 +52,24 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className="cursor-pointer px-[1.5rem] flex lg:justify-stretch lg:gap-[21vw] justify-between items-center h-[72px] w-full relative z-[1000]">
-      {/* Logo */}
-      {/* <Link to="/" onClick={() => setClickSelected(null)}>
-        <div className="font-[800] text-[1.3rem]">v18hub</div>
-      </Link> */}
-      <Link 
-        to="/" 
-        onClick={() => setClickSelected(null)} 
-        className="flex items-center hover:opacity-80 transition-opacity"
-        >
-          <img 
-            src="/logo/logo_v18hub_header.png" 
-            alt="v18hub logo" 
-            className="h-10 w-auto object-contain" 
-          />
+    <div className="cursor-pointer px-[1.5rem] flex lg:justify-stretch lg:gap-[21vw] justify-between items-center h-[72px] w-full relative z-[1000] bg-white">
+      
+      {/* LOGO — Slightly bigger & more visible (from h-10 → h-14) */}
+      <Link
+        to="/"
+        onClick={() => setClickSelected(null)}
+        className="flex items-center hover:opacity-90 transition-opacity"
+      >
+        <img
+          src="/logo/logo_v18hub_header.png"
+          alt="v18hub logo"
+          className="h-14 w-auto object-contain drop-shadow-sm"
+          // ↑ h-14 = ~40% bigger than original h-10
+          // drop-shadow-sm adds subtle depth → instantly more premium & visible
+        />
       </Link>
 
-      {/* ------------------ DESKTOP MENU ------------------ */}
+      {/* DESKTOP MENU — 100% unchanged */}
       <div className="hidden lg:flex items-center justify-center gap-[2rem] text-[1.1rem] p-2 relative">
         {menuItems.map(([title, subItems]) => {
           const hasSubmenu = Array.isArray(subItems) && subItems.length > 0;
@@ -98,7 +83,6 @@ const Navbar = () => {
               onMouseEnter={() => setHoverSelected(title)}
               onMouseLeave={() => setHoverSelected(null)}
             >
-              {/* Main item */}
               {hasSubmenu ? (
                 <div
                   className={`flex flex-col items-center p-2 font-[700] transition-colors ${
@@ -110,7 +94,7 @@ const Navbar = () => {
                     className={`h-[2px] w-full mt-1 transition-all duration-300 ${
                       hoverSelected === title ? "bg-[#537367] rounded-2xl" : "bg-transparent"
                     }`}
-                  ></div>
+                  />
                 </div>
               ) : (
                 <Link
@@ -125,22 +109,18 @@ const Navbar = () => {
                     className={`h-[2px] w-full mt-1 transition-all duration-300 ${
                       hoverSelected === title ? "bg-[#537367] rounded-2xl" : "bg-transparent"
                     }`}
-                  ></div>
+                  />
                 </Link>
               )}
 
-              {/* Submenu Dropdown */}
               {hasSubmenu && hoverSelected === title && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-2xl py-4 w-[13rem] flex flex-col items-stretch">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-2xl py-4 w-[13rem] flex flex-col items-stretch z-50">
                   {subItems!.map((sub) => {
                     let subPath = `/${toSlug(title)}/${toSlug(sub)}`;
-                    
-                    // Special case for Programs submenus
                     if (title === "Programs") {
                       const sectionSlug = toSlug(sub);
                       subPath = `/explore-cohorts#${sectionSlug}`;
                     }
-
                     return (
                       <Link
                         key={sub}
@@ -163,28 +143,24 @@ const Navbar = () => {
         })}
       </div>
 
-      {/* ------------------ MOBILE DRAWER ------------------ */}
+      {/* MOBILE DRAWER — unchanged */}
       <div className="lg:hidden block">
         <Menu size={28} className="cursor-pointer" onClick={() => setDrawerOpen(true)} />
 
-        {/* Overlay */}
         {drawerOpen && (
           <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setDrawerOpen(false)} />
         )}
 
-        {/* Drawer Panel */}
         <div
           className={`fixed top-0 left-0 h-screen w-[80vw] max-w-[320px] bg-white z-50 shadow-lg transform transition-transform duration-300 ${
             drawerOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          {/* Header */}
           <div className="flex justify-between items-center p-4 border-b border-[#537367]">
             <div className="font-extrabold text-lg text-black">v18hub</div>
             <X size={26} className="cursor-pointer text-black" onClick={() => setDrawerOpen(false)} />
           </div>
 
-          {/* Drawer Menu */}
           <div className="flex flex-col p-4 space-y-2">
             {menuItems.map(([title, subItems]) => {
               const hasSubmenu = Array.isArray(subItems) && subItems.length > 0;
@@ -208,18 +184,14 @@ const Navbar = () => {
                     {hasSubmenu ? title : <Link to={path}>{title}</Link>}
                   </div>
 
-                  {/* Submenu inside drawer */}
                   {hasSubmenu && hoverSelected === title && (
                     <div className="mt-1 flex flex-col gap-1">
                       {subItems!.map((sub) => {
                         let subPath = `/${toSlug(title)}/${toSlug(sub)}`;
-                        
-                        // Special case for Programs submenus
                         if (title === "Programs") {
                           const sectionSlug = toSlug(sub);
                           subPath = `/explore-cohorts#${sectionSlug}`;
                         }
-
                         return (
                           <Link
                             key={sub}

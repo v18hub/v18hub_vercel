@@ -1,3 +1,4 @@
+// src/pages/KnowMorePage.tsx (or wherever it lives)
 import { Know_More_Educator } from "../../components/Know_More_Pages/Know_More_Educator/Know_More_Educator";
 import { Know_More_Learner } from "../../components/Know_More_Pages/Know_More_Learner/Know_More_Learner";
 import { Know_More_IndustryPartner } from "../../components/Know_More_Pages/Know_More_Industry_Partner/Know_More_Industry_Partner";
@@ -34,28 +35,27 @@ const KnowMorePage = () => {
 
   return (
     <div className="font-open-sans bg-[#f4f2ee] min-h-screen w-full flex justify-center py-16">
-
       {/* SAME WIDTH CONTAINER */}
       <div className="w-full max-w-6xl px-6">
 
-        {/* BIG ROLE HEADING */}
+        {/* BIG ROLE HEADING – CENTERED (unchanged) */}
         <h1 className="text-center text-5xl md:text-5xl font-bold text-[#294b3c] mb-12">
           {Know_More_Data.role}
         </h1>
 
-        {/* TOP TEXT — SAME WRAP WIDTH */}
+        {/* TOP TEXT – CENTERED (unchanged) */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <p className="text-lg md:text-xl leading-relaxed text-[#546f61]">
             {Know_More_Data.title}
           </p>
         </div>
 
-        {/* EXACT SAME "HOW DOES IT WORK?" SECTION */}
+        {/* "HOW DOES IT WORK?" – CENTERED (unchanged) */}
         <div className="font-medium text-3xl md:text-4xl text-[#294b3c] text-center mb-12">
           How does it work?
         </div>
 
-        {/* ORIGINAL LAYOUT — UNCHANGED */}
+        {/* CONTENT BLOCKS – ONLY TEXT IS LEFT-ALIGNED */}
         <div className="flex flex-col gap-12 justify-center items-center">
           {Know_More_Data.how_does_it_work.map((each: any, i: number) => (
             <div
@@ -64,7 +64,7 @@ const KnowMorePage = () => {
                 i % 2 !== 0 ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Image — same size */}
+              {/* Image – unchanged */}
               <div className="h-[180px] w-[300px] sm:w-[20vw] sm:h-[15vw] bg-[#E6EAE7] flex items-center justify-center rounded-2xl overflow-hidden flex-shrink-0 shadow-md">
                 <img
                   src={each.img}
@@ -73,8 +73,8 @@ const KnowMorePage = () => {
                 />
               </div>
 
-              {/* Text — same alignment */}
-              <div className={`flex-1 text-center ${i % 2 !== 0 ? "md:text-left" : "md:text-right"}`}>
+              {/* TEXT – NOW LEFT-ALIGNED ONLY */}
+              <div className="flex-1 text-left">
                 <p className="font-semibold text-[#294b3c] text-xl sm:text-2xl mb-3">
                   {each.inner_title}
                 </p>
@@ -86,7 +86,7 @@ const KnowMorePage = () => {
           ))}
         </div>
 
-        {/* SAME CTA */}
+        {/* CTA – CENTERED (unchanged) */}
         <div className="flex flex-wrap gap-5 justify-center items-center mt-16">
           {cta?.button1 && (
             <Link

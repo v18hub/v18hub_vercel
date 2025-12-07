@@ -15,4 +15,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Added for better production builds
+  build: {
+    outDir: 'dist',
+    sourcemap: true, // Helps with debugging
+  },
+  // Ensures global object works correctly in production
+  define: {
+    global: 'globalThis',
+  },
+  // Base path for deployment (Vercel usually works with '/')
+  base: '/',
 })

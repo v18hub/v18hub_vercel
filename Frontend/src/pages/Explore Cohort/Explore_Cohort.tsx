@@ -9,9 +9,9 @@ export type Cohort = {
   imageSrc: string;
   tag: string;
   title: string;
-  short_description: string,
+  short_description: string;
   description: string;
-  startDate: string; // "Nov 1, 2025"
+  startDate: string;
   duration: string;
   goal: string[];
   dataset: string;
@@ -31,15 +31,15 @@ export type Cohort = {
 };
 
 const tagMap: Record<string, { display: string; slug: string }> = {
-  "industry": { display: "Industrial Cohorts", slug: "industry-cohorts" },
-  "foundational": { display: "Foundational Cohorts", slug: "foundational-cohorts" },
-  "webinar": { display: "Webinars", slug: "webinars" },
+  industry: { display: "Industrial Cohorts", slug: "industry-cohorts" },
+  foundational: { display: "Foundational Cohorts", slug: "foundational-cohorts" },
+  webinar: { display: "Webinars", slug: "webinars" },
 };
 
 const Explore_Cohort = () => {
   const location = useLocation();
 
-  // Group cohorts by tag (lowercase)
+  // Group cohorts by tag
   const groupedCohorts = cohortsData.reduce((acc, cohort) => {
     const tag = (cohort.tag || "others").trim().toLowerCase();
     if (!acc[tag]) acc[tag] = [];
@@ -47,12 +47,10 @@ const Explore_Cohort = () => {
     return acc;
   }, {} as Record<string, Cohort[]>);
 
-  // Fixed order based on tagMap keys
   const tagOrder = Object.keys(tagMap);
+  const orderedTags = tagOrder.filter((tag) => groupedCohorts[tag]);
 
-  const orderedTags = tagOrder.filter(tag => groupedCohorts[tag]);
-
-  // Scroll to section on menu click
+  // Smooth scroll to section
   useEffect(() => {
     const hash = location.hash.slice(1);
     if (!hash) return;
@@ -69,31 +67,30 @@ const Explore_Cohort = () => {
 
   return (
     <div className="bg-[#F6F5ED] py-12 font-open-sans">
-      <div className="max-w-7xl mx-auto px-4 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 space-y-20">
         {orderedTags.map((tagKey) => {
           const cohorts = groupedCohorts[tagKey];
           const { display: displayTag, slug: sectionSlug } = tagMap[tagKey];
           const sectionId = `section-${sectionSlug}`;
-
           const isWebinar = tagKey === "webinar";
 
           return (
             <section key={tagKey} id={sectionId} className="scroll-mt-20">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#294b3c] text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#294b3c] text-center mb-12">
                 {displayTag}
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {cohorts
-                .map((cohort) => (
+              {/* PERFECT CENTERED LAYOUT */}
+              <div className="flex flex-wrap justify-center gap-8 px-4">
+                {cohorts.map((cohort) => (
                   <Link
                     key={cohort.cohort_id}
                     to={`/cohort/${cohort.cohort_id}`}
                     className="block group"
                   >
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                      {/* Image */}
-                      <div className="h-48 overflow-hidden">
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 w-80 md:w-96 h-full flex flex-col">
+                      {/* Image - Fixed Height & Full Width */}
+                      <div className="h-48 overflow-hidden bg-gray-100">
                         <img
                           src={cohort.imageSrc}
                           alt={cohort.title}
@@ -101,11 +98,11 @@ const Explore_Cohort = () => {
                         />
                       </div>
 
-                      {/* Content */}
+                      {/* Card Content */}
                       <div className="p-6 flex flex-col flex-grow">
-                        {/* Tag */}
+                        {/* Tag Badge */}
                         <span className="inline-block bg-[#526B61] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 w-fit">
-                          {cohort.tag}
+                          {cohort.tag.charAt(0).toUpperCase() + cohort.tag.slice(1)}
                         </span>
 
                         {/* Title */}
@@ -113,7 +110,7 @@ const Explore_Cohort = () => {
                           {cohort.title}
                         </h3>
 
-                        {/* Webinar: Date & Time */}
+                        {/* Date */}
                         {isWebinar && cohort.startDate ? (
                           <p className="text-sm text-gray-600 mb-1">
                             <strong>Date & Time:</strong> {cohort.startDate}
@@ -125,18 +122,18 @@ const Explore_Cohort = () => {
                         )}
 
                         {/* Duration */}
-                        <p className="text-sm text-gray-600 mb-1">
+                        <p className="text-sm text-gray-600 mb-4">
                           <strong>Duration:</strong> {cohort.duration}
                         </p>
 
-                        {/* CTA Buttons */}
-                        <div className="mt-6 flex gap-3 justify-center">
+                        {/* Buttons */}
+                        <div className="mt-auto flex gap-3 justify-center">
                           <button className="px-5 py-2 bg-[#526B61] hover:bg-[#294b3c] text-white rounded-lg text-sm font-medium transition">
                             Know More
                           </button>
                           {cohort.is_approved && (
                             <button
-                              className={`px-5 py-2 border rounded-lg text-sm font-medium transition ${
+                              className={`px-5 py-2 border-2 rounded-lg text-sm font-medium transition ${
                                 isWebinar
                                   ? "border-green-600 text-green-600 hover:bg-green-50"
                                   : "border-[#526B61] text-[#526B61] hover:bg-[#526B61]/10"

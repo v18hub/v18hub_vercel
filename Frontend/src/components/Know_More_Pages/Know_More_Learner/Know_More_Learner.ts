@@ -18,12 +18,12 @@ export const Know_More_Learner = {
       inner_title: "Secure Your Spot",
       inner_desc:
         "Register for your chosen cohort and get ready to start your journey. Our cohorts are designed to support your academic needs, including brief exam breaks.",
-      img: "/Images/register_now.webp",
+      img: "/Images/register_now.png",
     },
     {
       inner_title: "Learn by Doing",
       inner_desc:
-        "Collaborate with peers, engage with mentors, and build solutions that matter. Document your work through code, evaluations, observations, and flow diagrams on GitHub - and proudly earn the certificate you truly worked hard for.",
+        "Collaborate with peers, engage with mentors, and build solutions that matter. Document your work through code, evaluations, observations, and flow diagrams on GitHub - and proudly earn the certificate you truly worked hard for. Learning doesn’t stop when the cohort ends - learners can continue their learning through provided self-paced research topics with the collective support of the project based learning community.",
       img: "/Images/learn_by_doing.png",
     },
   ],

@@ -131,3 +131,38 @@
   }
 }
 
+/* For Announcement Ticker change starts */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  padding-left: 100%;   /* This removes the gap at the end! */
+  white-space: nowrap;
+}
+
+.animate-marquee2 {
+  display: inline-block;
+  animation: marquee2 30s linear infinite;
+  padding-left: 100%;
+  white-space: nowrap;
+}
+
+/* For Announcement Ticker change ends */

@@ -64,8 +64,8 @@ const HeroBanner = () => {
               loop
               muted
               playsInline
-              src="/Video/HomePage/hero_image.mp4"
-              poster="/Video/HomePage/v18hub-logo-poster.jpg"
+              src="/Images/herobanner_v18hub.png"
+              poster="/Images/herobanner_v18hub.png"
             >
               Your browser does not support video.
             </video>
@@ -73,11 +73,11 @@ const HeroBanner = () => {
         </ScrollAnimation>
 
         <div className="flex flex-col text-center lg:mx-[75px] mb-6 lg:mb-10">
-          <ScrollAnimation delay={0.3}>
+          {/* <ScrollAnimation delay={0.3}>
             <div className="text-[1rem] sm:text-[2rem] lg:text-[2.5rem] font-[600] text-[#294b3c] leading-tight">
               Knowledge grows through DOING
             </div>
-          </ScrollAnimation>
+          </ScrollAnimation> */}
           <ScrollAnimation delay={0.4}>
             <div className="text-[#546f61] text-center font-[550] text-base sm:text-lg lg:text-xl mt-4 max-w-5xl mx-auto px-4 leading-relaxed">
               India’s only project-based learning platform where industry partners, educators, and mentors come together to help learners solve real-world problems with expert-led guidance.

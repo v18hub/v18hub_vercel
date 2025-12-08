@@ -19,9 +19,9 @@ export const Know_More_IndustryPartner = {
       
     },
     {
-      inner_title: "Track Insights",
+      inner_title: "Continue Partnership Beyond the Cohort",
       inner_desc:
-        "Monitor progress, gain fresh perspectives or prototypes, and access to passionate learners.",
+        "At the end of the cohort, prototype developed by the learners is delivered in its current form. The partnership can then continue through collaborative development toward a full-scale solution, or through talent engagement by hiring the trained learners as required.",
       img: "/Images/track_projects.png",
     },
   ],

@@ -208,10 +208,10 @@ export const cohortsData: Cohort[] = [
     startDate: "Jan 02, 2026",
     duration: "12 Weeks",
     goal: [
-            "Predict next week modal prices for key crops and send community alerts to help farmers choose sale timing and market, reducing vulnerability to price volatility. The project aims to:",
-            "Predict future commodity prices using time series forecasting models.",
-            "Identify factors influencing price fluctuations.",
-            "Develop a user-friendly dashboard for real-time price monitoring."
+            "Build strong classification/segmentation models on intraoral images.",
+            "Apply AI explainability (Grad-CAM, saliency maps) to interpret results.",
+            "Compare models against published benchmarks.",
+	    "Create a demo app for predictions."
         ],
     dataset: "https://aikosh.indiaai.gov.in/home/datasets/details/smart_intraoral_images_dataset_1.html",
     methods: [

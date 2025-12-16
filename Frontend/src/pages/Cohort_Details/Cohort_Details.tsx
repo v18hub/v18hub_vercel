@@ -30,11 +30,11 @@ const CohortDetails = () => {
   //const ZOHO_FORM_URL = `https://forms.zohopublic.com/yourorg/form/Register/formperma/xxxx?cohort_id=${cohort.cohort_id}`;
   let ZOHO_FORM_URL = `https://forms.zohopublic.com/yourorg/form/Register/formperma/xxxx?cohort_id=${cohort.cohort_id}`;
   if (cohort.cohort_id === "2") {
-    ZOHO_FORM_URL = "https://tinyurl.com/AgricultureCommodityPred";
+    ZOHO_FORM_URL = "https://forms.gle/VSKcAgdCkK6E4draA" //"https://tinyurl.com/AgricultureCommodityPred";
   } else if (cohort.cohort_id === "3") {
-    ZOHO_FORM_URL = "https://tinyurl.com/AIAgentMedicalInsuarnce";
+    ZOHO_FORM_URL = "https://forms.gle/6mnx5MSJYJAvnz6V6" //"https://tinyurl.com/AIAgentMedicalInsuarnce";
   } else if (cohort.cohort_id === "4") {
-    ZOHO_FORM_URL = "https://tinyurl.com/OralLeisonRegistration";
+    ZOHO_FORM_URL = "https://forms.gle/Zt9XaP4oRL1hkEcbA" //"https://tinyurl.com/OralLeisonRegistration";
   }
 
 

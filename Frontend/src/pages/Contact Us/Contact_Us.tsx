@@ -59,7 +59,7 @@ const Contact_Us = () => {
 
         {/* Email Call-to-action */}
         <p className="text-xl sm:text-2xl lg:text-3xl text-[#294b3c] font-medium">
-          Write us at: <span className="font-bold">v18hub@rediffmail.com</span>
+          Write us at: <span className="font-bold">contact@v18hub.in</span>
           {/* <a
             href="v18hub@rediffmail.com"
             className="text-[#526B61] hover:text-[#294B3C] underline underline-offset-4 transition-colors"

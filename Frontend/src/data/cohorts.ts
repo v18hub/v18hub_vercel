@@ -136,7 +136,7 @@ export const cohortsData: Cohort[] = [
     partner_id: "3",
     imageSrc: "/Images/ai_agent.jpg",
     tag: "Industry",
-    title: "Multi-Agent Pipeline for Healthcare Claims",
+    title: "Multi-Agent Pipeline for Healthcare Claims - Industry Collaboration with Sarvatra.ai",
     short_description: "A project to build an AI-driven agent system that automates medical insurance workflows.",
     description: "In this project, students will design an AI agent system tailored for the medical insurance domain. The system will intelligently read and analyze reports, identify missing or inconsistent information, assign tasks to relevant departments, and reprocess updated data while ensuring compliance with insurer-specific rules. By working with synthetic insurance claims, students will simulate a real-world workflow automation pipeline safely and efficiently, gaining hands-on experience in AI-driven document processing, rule-based validation, and healthcare process automation.",
     startDate: "Dec 27, 2025",

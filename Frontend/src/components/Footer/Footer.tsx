@@ -61,10 +61,10 @@ const Footer = () => {
             </a>
 
             <a
-              href="mailto:v18hub@rediffmail.com"
+              href="mailto:contact@v18hub.in"
               className="inline-flex items-center gap-2.5 text-[#6A1F1B] font-bold text-lg underline underline-offset-4 hover:no-underline transition"
             >
-              v18hub@rediffmail.com
+              contact@v18hub.in
             </a>
           </div>
         </div>

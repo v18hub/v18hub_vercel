@@ -21,10 +21,10 @@
 //               <span>help@v18hub.com</span>
 //             </div>
 
-//             {/* <div className="flex items-center gap-3">
+//             <div className="flex items-center gap-3">
 //               <span className="text-2xl">📞</span>
-//               <span>1-833-374-4736</span>
-//             </div> */}
+//               <span>+91-8618479182</span>
+//             </div>
 //           </div>
 //         </div>
 
@@ -44,30 +44,34 @@
 
 // import Contact_US_component from "../../components/Contact_Us_Component/Contact_US_component";
 
+// src/pages/Contact_Us.tsx
+
 const Contact_Us = () => {
   return (
-    <div className="relative min-h-screen w-full bg-[#F6F5ED] flex items-center justify-center font-open-sans px-6">
-      
+    <div className="relative min-h-screen w-full bg-[#F6F5ED] flex items-center justify-center font-open-sans px-6 py-16 md:py-20">
       {/* Centered Content */}
-      <div className="text-center max-w-4xl mx-auto">
-
+      <div className="text-center max-w-4xl mx-auto space-y-10 md:space-y-12">
         {/* Main Heading */}
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#294b3c] leading-tight mb-8">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#294b3c] leading-tight">
           Do you have a question?<br />
           We’re here to help.
         </h2>
 
-        {/* Email Call-to-action */}
-        <p className="text-xl sm:text-2xl lg:text-3xl text-[#294b3c] font-medium">
-          Write us at: <span className="font-bold">contact@v18hub.in</span>
-          {/* <a
-            href="v18hub@rediffmail.com"
-            className="text-[#526B61] hover:text-[#294B3C] underline underline-offset-4 transition-colors"
-          >
-             v18hub@rediffmail.com
-          </a> */}
-        </p>
+        {/* Contact Info - Icons + Text */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 text-[#294b3c] text-xl sm:text-2xl lg:text-3xl font-medium">
+          {/* Email */}
+          <div className="flex items-center gap-4">
+            <span className="text-4xl">✉️</span>
+            <span className="font-bold">contact@v18hub.in</span>
+          </div>
 
+          {/* Phone */}
+          <div className="flex items-center gap-4">
+            <span className="text-4xl">📞</span>
+            <span className="font-bold">+91 86184 79182</span>
+            {/* Change the number above to your actual contact number */}
+          </div>
+        </div>
       </div>
     </div>
   );

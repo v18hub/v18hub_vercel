@@ -31,8 +31,8 @@ const CohortDetails = () => {
     if (cohort.cohort_id === "3") {
       return (
         <>
-          <span className="line-through text-gray-500 mr-2">{cohort.startDate}</span>
-          <span className="text-[#294b3c] font-semibold">5 January 2026</span>
+          <span className="line-through text-gray-500 mr-2">Dec 27, 2025</span>
+          <span className="text-[#294b3c] font-semibold">{cohort.startDate}</span>
         </>
       );
     }

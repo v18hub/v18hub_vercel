@@ -26,38 +26,10 @@ const CohortDetails = () => {
     ZOHO_FORM_URL = "https://forms.gle/Zt9XaP4oRL1hkEcbA";
   }
 
-  // ── New: Display logic for start date and fees with strikethrough ──
-  const displayStartDate = () => {
-    if (cohort.cohort_id === "3") {
-      return (
-        <>
-          <span className="line-through text-gray-500 mr-2">Dec 27, 2025</span>
-          <span className="text-[#294b3c] font-semibold">{cohort.startDate}</span>
-        </>
-      );
-    }
-    return cohort.startDate;
-  };
+  // ── Removed strikethrough logic: now simply display original values ──
+  const displayStartDate = () => cohort.startDate;
 
-  const displayFees = () => {
-    if (cohort.cohort_id === "3") {
-      return (
-        <>
-          <span className="line-through text-[#f6f5ec] mr-2">₹{cohort.fees}</span>
-          <span className="text-[#f6f5ec] font-semibold">₹7,999</span>
-        </>
-      );
-    }
-    if (cohort.cohort_id === "4") {
-      return (
-        <>
-          <span className="line-through text-[#f6f5ec] mr-2">₹{cohort.fees}</span>
-          <span className="text-[#f6f5ec] font-semibold">₹5,599</span>
-        </>
-      );
-    }
-    return `₹${cohort.fees}`;
-  };
+  const displayFees = () => `₹${cohort.fees}`;
 
   // Sample Testimonials
   const testimonials = [

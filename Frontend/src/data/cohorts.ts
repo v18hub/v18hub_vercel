@@ -127,7 +127,7 @@ export const cohortsData: Cohort[] = [
     skill_tags: ["Python", "Data Cleaning", "Lang chain/Llama Index Frameworks", "Transformer Architecture", "Chunking & Embedding", "RAG Architecture", "Cloud Deployments"],
     fees: 3999,
     current_version: "v1.0",
-    is_approved: false,
+    is_approved: true,
     created_at: "2025-10-14T00:00:00Z",
     updated_at: "2025-10-14T00:00:00Z"
   },
@@ -292,4 +292,64 @@ export const cohortsData: Cohort[] = [
     created_at: "2025-10-14T00:00:00Z",
     updated_at: "2025-10-14T00:00:00Z"
   },
+  {
+    cohort_id: "2",
+    partner_id: "None",
+    imageSrc: "/Images/forecasting_and_timseries.jpg",
+    tag: "Foundational",
+    title: "Predicting Agricultural Commodity Prices",
+    short_description: "A predictive analytics project that forecasts next week’s commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
+    description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
+    startDate: "Jan. 29, 2026",
+    duration: "8 Weeks",
+    goal: [
+            "Predict next week modal prices for key crops and send community alerts to help farmers choose sale timing and market, reducing vulnerability to price volatility. The project aims to:",
+            "Predict future commodity prices using time series forecasting models.",
+            "Identify factors influencing price fluctuations.",
+            "Develop a user-friendly dashboard for real-time price monitoring."
+        ],
+    dataset: "https://aikosh.indiaai.gov.in/home/datasets/details/variety_wise_daily_market_prices_of_commodity.html",
+    methods: [
+                "Data Preprocessing",
+                "Exploratory Data Analysis (EDA)",
+                "Modeling - Timeseries Modelling, Machine Learning and Deep Learning Models",
+                "Evaluation Metrics"
+            ],
+    milestones: [
+            "Project Kickoff & Dataset Familiarization.;Introduction of the dataset and its sources.;Discuss project goals and AI applications.",
+            "Data Cleaning & Preprocessing.;Prepare the dataset for analysis and modeling.",
+            "Exploratory Data Analysis (EDA).;Visualize trends and understand patterns.",
+            "Model Selection & Baseline.;Choose AI/ML models appropriate for price prediction.",
+            "Time Series & Advanced AI Modeling.;Apply time series forecasting and deep learning.",
+            "Integration & Visualization.;Create a user-friendly interface to visualize predictions.",
+            "Evaluation & Validation.;Validate model accuracy and usability.",
+            "Presentation And Sharing Experience Over Community.;Share results with community in form of Blog."
+          ],
+    deliverables:[
+            "Project and Github setup.; Dataset summary report.; Data dictionary with column descriptions.",
+            "Cleaned dataset ready for analysis.;Preprocessing pipeline script.",
+            "EDA report with charts and insights.",
+            "Initial Draft of Data/Process Flow Diagram.;Baseline model with performance metrics.;Github for review.",
+            "Time series forecast models.;Performance comparison table.",
+            "Interactive dashboard showing forecasts.",
+            "Evaluation report.;Updated dashboard with improvements.",
+            "Deployment on cloud.;Finish the data flow diagram.;Finish github review.;Documentation & Demo."
+          ],
+    documents_list: " ",
+    key_learnings: "Working with Real-World, Noisy Data, Building Pipeline, visualization, Time Series Analysis & Forecasting, Basic to Advanced AI modeling, Feature Engineering – Derived, seasonal and geographic or market-level features., Model Evaluation",
+    social_engagement: "Provide insights to further students on price trends, volatility, decision-making for procurement and sales. Enhance transparency in agricultural markets., Write a blog post on learnings, datasets, and project outcomes.",
+    evaluations: "Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), R-Squared (Coefficient of Determination), Mean Squared Logarithmic Error (MSLE), Evaluate model stability across time windows.",
+    skill_tags: ["Python", "Data Cleaning", "Timeseries", "ARIMA", "XGBoost", "LGBM", "LSTM", "Cloud Deployments"],
+    fees: 3999,
+    current_version: "v1.0",
+    is_approved: true,
+    created_at: "2025-10-14T00:00:00Z",
+    updated_at: "2025-10-14T00:00:00Z"
+  },
 ];
+
+
+// Collect and Process Data For RAG Systems - https://forms.gle/MSju23hBmYpBEzjF7
+// Collect and Explore Medical Data - https://forms.gle/j8rq9ZZKg9ixQSGw9
+// Exploring Vision Datasets - https://forms.gle/BL3f3ubZFDac7ED47
+// Timeseries: Predicting Agricultural prices with ML - https://forms.gle/UYvMhqoZkLaDKohj7

@@ -24,6 +24,8 @@ const CohortDetails = () => {
     ZOHO_FORM_URL = "https://forms.gle/6mnx5MSJYJAvnz6V6";
   } else if (cohort.cohort_id === "4") {
     ZOHO_FORM_URL = "https://forms.gle/Zt9XaP4oRL1hkEcbA";
+  } else if (cohort.cohort_id === "1") {
+    ZOHO_FORM_URL = "https://forms.gle/RQgCxcHpSy6n42GH7";
   }
 
   // ── Removed strikethrough logic: now simply display original values ──

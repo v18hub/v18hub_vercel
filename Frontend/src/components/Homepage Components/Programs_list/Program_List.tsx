@@ -1,4 +1,5 @@
 // Program_List.tsx — UPDATED with Applied Cohorts + formatting
+import React from 'react';
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -6,7 +7,7 @@ import { ScrollAnimation } from "../../animations/Scroll_Animation"; // Adjust p
 
 interface Program {
   type_of: string;
-  slogan: string | JSX.Element; // Allow JSX for richer formatting
+  slogan: string | React.JSX.Element; // Allow JSX for richer formatting
   href: string;
 }
 

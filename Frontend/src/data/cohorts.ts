@@ -1,5 +1,3 @@
-import { easingDefinitionToFunction } from "framer-motion";
-
 export type Cohort = {
   cohort_id: string;
   partner_id: string;

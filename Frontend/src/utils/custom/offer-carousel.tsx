@@ -1,4 +1,4 @@
-// utils/custom/offer-carousel.tsx — FINAL: NO TRUNCATION, MOBILE FULLY VISIBLE
+// utils/custom/offer-carousel.tsx — UPDATED with bigger tag label + styled price
 import { useEffect, useRef, useState, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,26 +35,26 @@ interface OfferCarouselProps {
 }
 
 const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
+  const isFoundational = cohort.tag.toLowerCase() === "foundational";
+  const displayTag = cohort.tag.charAt(0).toUpperCase() + cohort.tag.slice(1);
+
   return (
     <div className="h-[560px] w-full flex flex-col bg-white rounded-3xl shadow-xl border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] overflow-hidden">
       <Link to={`/cohort/${cohort.cohort_id}`} className="flex flex-col h-full">
 
         {/* Image */}
-        <div className="relative h-80 flex-shrink-0">
+        <div className="h-64 flex-shrink-0">
           <img
             src={cohort.imageSrc}
             alt={cohort.title}
             className="w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute top-3 left-3 bg-[#526B61] text-white px-3 py-1 rounded-full text-xs font-bold">
-            {cohort.tag}
-          </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-5 flex flex-col justify-between">
-          <div>
+        <div className="flex-1 px-5 pt-4 pb-6 flex flex-col">
+          <div className="flex-1">
             <h3 className="text-lg font-bold text-[#294b3c] mb-2 line-clamp-2 leading-tight">
               {cohort.title}
             </h3>
@@ -62,30 +62,46 @@ const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
               {cohort.short_description}
             </p>
 
-            <div className="flex justify-between text-xs mb-1">
+            {/* Centered row: Starts → Price → Duration */}
+            <div className="grid grid-cols-3 gap-2 text-xs text-center">
               <div>
-                <span className="text-gray-600 block">Starts</span>
-                <span className="font-bold text-[#294b3c]">{cohort.startDate}</span>
+                <div className="text-gray-600">Starts</div>
+                <div className="font-bold text-[#294b3c]">{cohort.startDate}</div>
               </div>
-              <div className="text-right">
-                <span className="text-gray-600 block">Duration</span>
-                <span className="font-bold text-[#294b3c]">{cohort.duration}</span>
+
+              {isFoundational ? (
+                <div>
+                  <div className="text-gray-600">Price</div>
+                  <div className="text-base font-bold text-[#6A1F1B]">
+                    ₹{cohort.fees.toLocaleString("en-IN")}
+                  </div>
+                </div>
+              ) : (
+                <div /> // placeholder to keep grid alignment
+              )}
+
+              <div>
+                <div className="text-gray-600">Duration</div>
+                <div className="font-bold text-[#294b3c]">{cohort.duration}</div>
               </div>
             </div>
           </div>
 
-          {/* Button */}
-          <div className="mt-1.5">
-            {cohort.is_approved ? (
-              <button className="w-full py-3 bg-[#526B61] hover:bg-[#294b3c] text-white rounded-2xl font-bold text-sm transition-all active:scale-95">
-                Enroll Now
-              </button>
-            ) : (
-              <button disabled className="w-full py-3 bg-gray-400 text-gray-200 rounded-2xl font-bold text-sm cursor-not-allowed">
-                Coming Soon
-              </button>
-            )}
+          {/* Tag Cohort Label – bigger font */}
+          <div className="bg-[#6A1F1B] text-[#f6f5ec] py-2.5 px-4 rounded-2xl text-base font-bold text-center mb-3">
+            {displayTag} Cohort
           </div>
+
+          {/* Enroll Button */}
+          {cohort.is_approved ? (
+            <button className="w-full py-3 bg-[#526B61] hover:bg-[#294b3c] text-white rounded-2xl font-bold text-sm transition-all active:scale-95">
+              Enroll Now
+            </button>
+          ) : (
+            <button disabled className="w-full py-3 bg-gray-400 text-gray-200 rounded-2xl font-bold text-sm cursor-not-allowed">
+              Coming Soon
+            </button>
+          )}
         </div>
       </Link>
     </div>
@@ -101,72 +117,58 @@ const OfferCarousel = memo(({ cohorts }: OfferCarouselProps) => {
   const checkScroll = () => {
     if (!scrollContainerRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+    setCanScrollLeft(scrollLeft > 5);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
   };
 
   useEffect(() => {
+    const timer = setTimeout(checkScroll, 300);
     checkScroll();
+
     const handler = () => checkScroll();
     window.addEventListener("resize", handler);
-    scrollContainerRef.current?.addEventListener("scroll", handler);
-    setTimeout(checkScroll, 100);
+    const container = scrollContainerRef.current;
+    container?.addEventListener("scroll", handler);
 
     return () => {
       window.removeEventListener("resize", handler);
-      scrollContainerRef.current?.removeEventListener("scroll", handler);
+      container?.removeEventListener("scroll", handler);
+      clearTimeout(timer);
     };
   }, [cohorts]);
 
-  const scrollNext = () => scrollContainerRef.current?.scrollBy({ left: 320, behavior: "smooth" });
-  const scrollPrev = () => scrollContainerRef.current?.scrollBy({ left: -320, behavior: "smooth" });
+  const scrollNext = () => scrollContainerRef.current?.scrollBy({ left: 340, behavior: "smooth" });
+  const scrollPrev = () => scrollContainerRef.current?.scrollBy({ left: -340, behavior: "smooth" });
 
-  const total = cohorts.length;
-  const showMobileArrows = total > 1;
-  const showDesktopArrows = total > 3;
+  const showArrows = cohorts.length > 1;
 
   return (
     <div className="relative">
-      {/* Desktop Arrows */}
-      {showDesktopArrows && (canScrollLeft || canScrollRight) && (
-        <>
-          {canScrollLeft && (
-            <button onClick={scrollPrev} className="absolute left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:flex items-center justify-center w-12 h-12 bg-white shadow-2xl rounded-full hover:scale-110 transition-all border border-gray-200">
-              <ChevronLeft size={32} className="text-[#294b3c]" />
-            </button>
-          )}
-          {canScrollRight && (
-            <button onClick={scrollNext} className="absolute right-0 top-1/2 -translate-y-1/2 z-40 hidden lg:flex items-center justify-center w-12 h-12 bg-white shadow-2xl rounded-full hover:scale-110 transition-all border border-gray-200">
-              <ChevronRight size={32} className="text-[#294b3c]" />
-            </button>
-          )}
-        </>
+      {showArrows && canScrollLeft && (
+        <button
+          onClick={scrollPrev}
+          className="absolute left-0 md:left-[-20px] top-1/2 -translate-y-1/2 z-40 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white shadow-lg rounded-full hover:scale-110 transition-all border border-gray-200"
+        >
+          <ChevronLeft size={28} className="text-[#294b3c]" />
+        </button>
       )}
 
-      {/* Mobile Arrows */}
-      {showMobileArrows && !showDesktopArrows && (canScrollLeft || canScrollRight) && (
-        <>
-          {canScrollLeft && (
-            <button onClick={scrollPrev} className="absolute left-2 top-1/2 -translate-y-1/2 z-40 flex lg:hidden items-center justify-center w-10 h-10 bg-white shadow-xl rounded-full">
-              <ChevronLeft size={28} className="text-[#294b3c]" />
-            </button>
-          )}
-          {canScrollRight && (
-            <button onClick={scrollNext} className="absolute right-2 top-1/2 -translate-y-1/2 z-40 flex lg:hidden items-center justify-center w-10 h-10 bg-white shadow-xl rounded-full">
-              <ChevronRight size={28} className="text-[#294b3c]" />
-            </button>
-          )}
-        </>
+      {showArrows && canScrollRight && (
+        <button
+          onClick={scrollNext}
+          className="absolute right-0 md:right-[-20px] top-1/2 -translate-y-1/2 z-40 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white shadow-lg rounded-full hover:scale-110 transition-all border border-gray-200"
+        >
+          <ChevronRight size={28} className="text-[#294b3c]" />
+        </button>
       )}
 
-      {/* Scroll Container — THIS IS THE KEY FIX */}
       <div
         ref={scrollContainerRef}
-        className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth"
+        className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth -mx-4 px-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         onScroll={checkScroll}
       >
-        <div className="flex gap-5 px-4 py-8 min-w-max justify-center lg:justify-start">
+        <div className="flex gap-5 py-8 justify-start">
           {cohorts.map((cohort) => (
             <div
               key={cohort.cohort_id}

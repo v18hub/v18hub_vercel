@@ -17,7 +17,29 @@ const On_The_Horizon = () => {
       return start >= now && start <= twoMonthsLater;
     });
 
-    setUpcomingCohorts(filtered);
+    // Custom sort: by date first, then by tag priority
+    const tagPriority: Record<string, number> = {
+      foundational: 1,
+      applied: 2,
+      industry: 3,
+      // add more tags if needed
+    };
+
+    const sorted = filtered.sort((a, b) => {
+      const dateA = new Date(a.startDate).getTime();
+      const dateB = new Date(b.startDate).getTime();
+
+      if (dateA !== dateB) {
+        return dateA - dateB; // earlier dates first
+      }
+
+      // Same date → sort by tag priority (Foundational → Applied → Industry)
+      const priorityA = tagPriority[a.tag.toLowerCase()] ?? 999;
+      const priorityB = tagPriority[b.tag.toLowerCase()] ?? 999;
+      return priorityA - priorityB;
+    });
+
+    setUpcomingCohorts(sorted);
   }, []);
 
   return (

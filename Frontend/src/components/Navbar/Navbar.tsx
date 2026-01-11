@@ -23,7 +23,7 @@ const Navbar = () => {
   const menuItems: [string, string[]?][] = [
     ["OurCommunity", ["Learners", "Educators", "Industry-Partners", "Mentors"]],
     ["Why-Us?"],
-    ["Programs", ["Industry Cohorts", "Foundational Cohorts", "Webinars"]],
+    ["Programs", ["Industry Cohorts", "Applied Cohorts", "Foundational Cohorts", "Webinars"]],
     ["Resources", ["Blogs", "News"]],
     ["About", ["Our-Story", "Career", "Contact-Us"]],
   ];

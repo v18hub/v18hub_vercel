@@ -1,3 +1,5 @@
+import { easingDefinitionToFunction } from "framer-motion";
+
 export type Cohort = {
   cohort_id: string;
   partner_id: string;
@@ -27,10 +29,10 @@ export type Cohort = {
 
 export const cohortsData: Cohort[] = [
   {
-    cohort_id: "2",
+    cohort_id: "predict-agri-commodity-prices", //2
     partner_id: "None",
-    imageSrc: "/Images/forecasting_and_timseries.jpg",
-    tag: "Foundational",
+    imageSrc: "/Images/forecasting_and_timeseries.jpg",
+    tag: "Applied",
     title: "Predicting Agricultural Commodity Prices",
     short_description: "A predictive analytics project that forecasts next week’s commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
@@ -70,7 +72,7 @@ export const cohortsData: Cohort[] = [
             "Deployment on cloud.;Finish the data flow diagram.;Finish github review.;Documentation & Demo."
           ],
     documents_list: " ",
-    key_learnings: "Working with Real-World, Noisy Data, Building Pipeline, visualization, Time Series Analysis & Forecasting, Basic to Advanced AI modeling, Feature Engineering – Derived, seasonal and geographic or market-level features., Model Evaluation",
+    key_learnings: "Working with Real-World, Noisy Data, Building Pipeline, visualization, Time Series Analysis & Forecasting.;Basic to Advanced AI modeling.; Feature Engineering - Derived, seasonal and geographic or market-level features.;Model Evaluation.",
     social_engagement: "Provide insights to further students on price trends, volatility, decision-making for procurement and sales. Enhance transparency in agricultural markets., Write a blog post on learnings, datasets, and project outcomes.",
     evaluations: "Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), R-Squared (Coefficient of Determination), Mean Squared Logarithmic Error (MSLE), Evaluate model stability across time windows.",
     skill_tags: ["Python", "Data Cleaning", "Timeseries", "ARIMA", "XGBoost", "LGBM", "LSTM", "Cloud Deployments"],
@@ -81,13 +83,13 @@ export const cohortsData: Cohort[] = [
     updated_at: "2025-10-14T00:00:00Z"
   },
   {
-    cohort_id: "1",
+    cohort_id: "startup-funding-rag", //1
     partner_id: "1",
     imageSrc: "/Images/build_rag.jpg",
     tag: "Industry",
     title: "Startup Funding RAG Application",
     short_description: "A RAG-based project that uses LLMs to provide insights on startup fundings information.", // by scraping, processing, and querying real-world data from startup portals.",
-    description: "This project aims to develop a Retrieval-Augmented Generation (RAG) application that delivers comprehensive insights into startup funding — including details about investors, funding rounds, sectors, and policies. Students will gain hands-on experience in collecting both structured and unstructured data from startup portals, performing data cleaning and preprocessing, segmenting and embedding the content, storing it efficiently in a vector database, and leveraging Large Language Models (LLMs) to query and generate meaningful insights.",
+    description: "This project aims to develop a Retrieval-Augmented Generation (RAG) application that delivers comprehensive insights into startup funding - including details about investors, funding rounds, sectors, and policies. Learners will gain hands-on experience in collecting both structured and unstructured data from startup portals, performing data cleaning and preprocessing, chunking and embedding the content, storing it efficiently in a vector database, and leveraging Large Language Models (LLMs) to query and generate meaningful insights evaluated with relevant metrices.",
     startDate: "Jan 17, 2026",
     duration: "8 Weeks",
     goal: ["Train students to build RAG pipelines on real-world startup data.",
@@ -121,8 +123,8 @@ export const cohortsData: Cohort[] = [
         "App deployed over cloud.; Project documents, submit cleaned and structured github code for review, demo, publish blog."
     ],
     documents_list: " ",
-    key_learnings: "Core AI (RAG); Data engineering (scraping, cleaning); Handling Vector DB; Preparing data flow diagrams.; Evaluating RAG systems; MLOps (deployment); Product thinking (frontend + social impact)",
-    social_engagement: "Share startup funding insights with students & industry people., Write a blog post on learnings, datasets, and project outcomes.",
+    key_learnings: "Core AI (RAG).;Data engineering (scraping, cleaning).;Handling Vector DB;Preparing data flow diagrams.;Evaluating RAG systems.;MLOps (deployment).;Product thinking (frontend + social impact).",
+    social_engagement: "Share startup funding insights with peer learners & industry people., Write a blog post on learnings, datasets, and project outcomes.",
     evaluations: "Retrieval quality (Precision@k, Recall).; Faithfulness and contexual Matrices.; Latency of queries and API performance.",
     skill_tags: ["Python", "Data Cleaning", "Lang chain/Llama Index Frameworks", "Transformer Architecture", "Chunking & Embedding", "RAG Architecture", "Cloud Deployments"],
     fees: 3999,
@@ -132,13 +134,13 @@ export const cohortsData: Cohort[] = [
     updated_at: "2025-10-14T00:00:00Z"
   },
   {
-    cohort_id: "3",
+    cohort_id: "automate-healthcare-claims", //3
     partner_id: "3",
     imageSrc: "/Images/ai_agent.jpg",
     tag: "Industry",
     title: "Automating Medical Insurance Claims Using AI Agents - Industry Collaboration with Sarvatra.ai",
     short_description: "A project to build an AI-driven agent system that automates medical insurance workflows.",
-    description: "In this project, students will design an AI agent system tailored for the medical insurance domain. The system will intelligently read and analyze reports, identify missing or inconsistent information, assign tasks to relevant departments, and reprocess updated data while ensuring compliance with insurer-specific rules. By working with synthetic insurance claims, students will simulate a real-world workflow automation pipeline safely and efficiently, gaining hands-on experience in AI-driven document processing, rule-based validation, and healthcare process automation.",
+    description: "In this project, learners will design an AI agent system tailored for the medical insurance domain. The system will intelligently read and analyze reports, identify missing or inconsistent information, assign tasks to relevant departments, and reprocess updated data while ensuring compliance with insurer-specific rules. By working with synthetic insurance claims, learners will simulate a real-world workflow automation pipeline safely and efficiently, gaining hands-on experience in AI-driven document processing, rule-based validation, and healthcare process automation.",
     startDate: "Feb 06, 2026",
     duration: "12 Weeks",
     goal: [
@@ -187,7 +189,7 @@ export const cohortsData: Cohort[] = [
                   "Cross discussions about the learning and review of code.;Demo of end to end working of the multi agent health insurance claim."
                 ],
     documents_list: "",
-    key_learnings: "Learn multi-agent AI architecture for real-world workflows. Apply NLP in healthcare for diagnosis & code prediction. Understand workflow automation with AI + rules. Gain skills in error handling, iterative validation, compliance checking. Experience deployment in health-tech context. Build team collaboration & project documentation skills.",
+    key_learnings: "Learn multi-agent AI architecture for real-world workflows.;Apply NLP in healthcare for diagnosis & code prediction.;Understand workflow automation with AI + rules.;Gain skills in error handling, iterative validation, compliance checking.;Experience deployment in health-tech context.;Build team collaboration & project documentation skills.",
     social_engagement: "Encourages learners to follow AI ethics guidelines, Builds awareness of how automation can improve efficiency while maintaining trust, safety, and human oversight in sensitive domains like healthcare and insurance. Supports inclusive innovation by preparing learners to design systems that benefit both industry stakeholders and end consumers responsibly. Write a blog post on learnings, datasets, and project outcomes. Share with future cohorts students.",
     evaluations: "Ground-Truth Based Evaluation, Process-Oriented Evaluation, Human-in-the-Loop Evaluation, Simulation-Based Testing",
     skill_tags: ["Multi-Agent Systems", "RAG", "GenAI", "NLP", "Workflow Automation", "Document Intelligence", "Python", "Model Evaluation and Monitoring"],
@@ -198,13 +200,13 @@ export const cohortsData: Cohort[] = [
     updated_at: "2025-10-14T00:00:00Z"
   },
   {
-    cohort_id: "4",
+    cohort_id: "intraoral-lesion", //4
     partner_id: "None",
-    imageSrc: "/Images/oral_cancer_project_picture.png",
-    tag: "Foundational",
-    title: "Oral Lesion Detection & Analysis",
+    imageSrc: "/Images/intraoral_lesion.png",
+    tag: "Applied",
+    title: "Intraoral Lesion Detection & Analysis",
     short_description: "Build AI models for dental screening and anomaly detection.",
-    description: "The SMART Intraoral Images Dataset comprises annotated mouth images collected to advance AI-driven dental screening and diagnosis. In this project, students will develop and train computer vision models to detect oral abnormalities, classify conditions, and explain their predictions through interpretable AI techniques. The cohort focuses on research-based development, encouraging students to benchmark their results against published studies, collaborate through peer review, and build deployable prototypes that demonstrate real-world applicability in dental healthcare.",
+    description: "The SMART Intraoral Images Dataset comprises annotated mouth images collected to advance AI-driven dental screening and diagnosis. In this project, learners will develop and train computer vision models to detect oral abnormalities, classify conditions, and explain their predictions through interpretable AI techniques. The cohort focuses on research-based development, encouraging students to benchmark their results against published studies, collaborate through peer review, and build deployable prototypes that demonstrate real-world applicability in dental healthcare.",
     startDate: "Feb 06, 2026",
     duration: "12 Weeks",
     goal: [
@@ -252,7 +254,7 @@ export const cohortsData: Cohort[] = [
                     "Cross-team feedback, refine pipeline.;Presentation, report, blogs.;Discussion on further research topics."
                 ],
     documents_list: " ",
-    key_learnings: "Experience real-world medical image AI workflows - from noisy data to deployable applications. Understand challenges in medical imaging - class imbalance, variable image quality. Learn transfer learning & advanced CNN pipelines. Gain hands-on experience in model explainability (Grad-CAM, saliency) and how that fosters trust in AI. Learn deployment basics — serving models via APIs.",
+    key_learnings: "Experience real-world medical image AI workflows - from noisy data to deployable applications.;Understand challenges in medical imaging - class imbalance, variable image quality.;Learn transfer learning & advanced CNN pipelines.;Gain hands-on experience in model explainability (Grad-CAM, saliency) and how that fosters trust in AI.;Learn deployment basics - serving models via APIs.",
     social_engagement: "Create awareness materials (infographics, pamphlets) on the value of AI in oral health. Publish a blog with project summaries, visuals, insights, code. Conduct peer-learning sessions",
     evaluations: "Model performance: Accuracy, Precision, Recall, F1, ROC-AUC. Explainability quality: Do Grad-CAM heatmaps highlight relevant mouth regions consistently?.",
     skill_tags: ["Deep Learning", "Convolutional Neural Networks (CNNs)", "Medical Image Analysis", "Data Preprocessing and Augmentation", "Model Evaluation and Benchmarking", "Python", "TensorFlow / PyTorch", "Transfer Learning"],
@@ -263,7 +265,7 @@ export const cohortsData: Cohort[] = [
     updated_at: "2025-10-14T00:00:00Z"
   },
   {
-    cohort_id: "5",
+    cohort_id: "data-science-streams", //5
     partner_id: "None",
     imageSrc: "/Images/data_science_streams.png",
     tag: "Webinar",
@@ -282,7 +284,7 @@ export const cohortsData: Cohort[] = [
     milestones: [],
     deliverables:[],
     documents_list: " ",
-    key_learnings: "Understand the major streams of Data Science — Data Analytics, Machine Learning, AI, Data Engineering, and Business Intelligence., Identify the core skills, tools, and technologies required for each stream., Learn how to build a personalized learning roadmap for your desired career path., Explore real-world applications and use cases driving demand in each domain., Discover how to transition or upskill effectively to stay relevant in the data-driven economy.",
+    key_learnings: "Understand the major streams of Data Science — Data Analytics, Machine Learning, AI, Data Engineering, and Business Intelligence.;Identify the core skills, tools, and technologies required for each stream.;Learn how to build a personalized learning roadmap for your desired career path.;Explore real-world applications and use cases driving demand in each domain.;Discover how to transition or upskill effectively to stay relevant in the data-driven economy.",
     social_engagement: "Live Q&A session with Data Science mentors and industry experts., Networking opportunity with like-minded learners and professionals., Community group access for continued discussions, learning resources, and project collaborations.",
     evaluations: "",
     skill_tags: ["Data Science"],
@@ -293,58 +295,120 @@ export const cohortsData: Cohort[] = [
     updated_at: "2025-10-14T00:00:00Z"
   },
   {
-    cohort_id: "2",
+    cohort_id: "collect-process-rag-data",
     partner_id: "None",
-    imageSrc: "/Images/forecasting_and_timseries.jpg",
+    imageSrc: "/Images/collect_process_data.png",
     tag: "Foundational",
-    title: "Predicting Agricultural Commodity Prices",
-    short_description: "A predictive analytics project that forecasts next week’s commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
-    description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
-    startDate: "Jan. 29, 2026",
-    duration: "8 Weeks",
+    title: "Collect and Process Data for RAG Systems",
+    short_description: "Data pipeline for GenAI: Scraping, cleaning, chunking, embedding and storing data", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
+    description: "Data preparation for AI systems is the most critical part of AI systems. Real GenAI doesn’t work on magic prompts, it runs on clean knowledge bases, smart chunking, strong embeddings, and reliable retrieval pipelines. In this 3-week cohort, students will build a complete ingestion pipeline from scratch: scraping structured documentation, cleaning messy HTML into usable Markdown, experimenting with advanced chunking strategies, embedding data using modern models, and storing everything in Milvus.",
+    startDate: "Jan. 16, 2026",
+    duration: "3 Weeks",
     goal: [
-            "Predict next week modal prices for key crops and send community alerts to help farmers choose sale timing and market, reducing vulnerability to price volatility. The project aims to:",
-            "Predict future commodity prices using time series forecasting models.",
-            "Identify factors influencing price fluctuations.",
-            "Develop a user-friendly dashboard for real-time price monitoring."
+            "Train students in the core engineering layer of GenAI systems.",
+            "A professional engineering understanding of web → clean text → chunks → embeddings → vector DB pipeline"
         ],
-    dataset: "https://aikosh.indiaai.gov.in/home/datasets/details/variety_wise_daily_market_prices_of_commodity.html",
-    methods: [
-                "Data Preprocessing",
-                "Exploratory Data Analysis (EDA)",
-                "Modeling - Timeseries Modelling, Machine Learning and Deep Learning Models",
-                "Evaluation Metrics"
-            ],
+    dataset: "Websites like Startup India, Seedfunds, Meity, VC firm sites, news articles, policy PDFs",
+    methods: [],
     milestones: [
-            "Project Kickoff & Dataset Familiarization.;Introduction of the dataset and its sources.;Discuss project goals and AI applications.",
-            "Data Cleaning & Preprocessing.;Prepare the dataset for analysis and modeling.",
-            "Exploratory Data Analysis (EDA).;Visualize trends and understand patterns.",
-            "Model Selection & Baseline.;Choose AI/ML models appropriate for price prediction.",
-            "Time Series & Advanced AI Modeling.;Apply time series forecasting and deep learning.",
-            "Integration & Visualization.;Create a user-friendly interface to visualize predictions.",
-            "Evaluation & Validation.;Validate model accuracy and usability.",
-            "Presentation And Sharing Experience Over Community.;Share results with community in form of Blog."
+            "Project Kickoff, converting web documents into markdown.",
+            "Chunking & Embedding strategies + visual comparisons.",
+            "Store data into pre designed milvus vector storage. Search queries. Clear documentation."
           ],
     deliverables:[
-            "Project and Github setup.; Dataset summary report.; Data dictionary with column descriptions.",
-            "Cleaned dataset ready for analysis.;Preprocessing pipeline script.",
-            "EDA report with charts and insights.",
-            "Initial Draft of Data/Process Flow Diagram.;Baseline model with performance metrics.;Github for review.",
-            "Time series forecast models.;Performance comparison table.",
-            "Interactive dashboard showing forecasts.",
-            "Evaluation report.;Updated dashboard with improvements.",
-            "Deployment on cloud.;Finish the data flow diagram.;Finish github review.;Documentation & Demo."
+            "Project and Github setup. Code for collecting data and converting it into markdown.",
+            "Document on observations. Code for different chunking mechanisms.",
+            "Chunks retrieved for various questions. Documentation and code checked in GitHub. Pipeline flow diagram.",
           ],
     documents_list: " ",
-    key_learnings: "Working with Real-World, Noisy Data, Building Pipeline, visualization, Time Series Analysis & Forecasting, Basic to Advanced AI modeling, Feature Engineering – Derived, seasonal and geographic or market-level features., Model Evaluation",
-    social_engagement: "Provide insights to further students on price trends, volatility, decision-making for procurement and sales. Enhance transparency in agricultural markets., Write a blog post on learnings, datasets, and project outcomes.",
-    evaluations: "Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), R-Squared (Coefficient of Determination), Mean Squared Logarithmic Error (MSLE), Evaluate model stability across time windows.",
-    skill_tags: ["Python", "Data Cleaning", "Timeseries", "ARIMA", "XGBoost", "LGBM", "LSTM", "Cloud Deployments"],
-    fees: 3999,
+    key_learnings: "Build recursive web scrapers for documentation and knowledge portals.;Convert messy web HTML to structured Markdown reliably.;Understand real differences between chunking types.;Choose optimal chunk sizes, overlaps, and strategies.;Store and retrieve data into Milvus schema.",
+    social_engagement: " ",
+    evaluations: "Engineering Quality: Clean code, error handling, modular structure, scalability., Retrieval Relevance: Do semantic queries return meaningful and useful chunks?, System Thinking & Justification: Can the student explain their choices?, Documentation: Clear README, architecture explanation, pipeline clarity, reproducibility.",
+    skill_tags: ["Python", "Data Cleaning", "Markdown", "Chunking", "Embedding", "Vector Database"],
+    fees: 299,
     current_version: "v1.0",
     is_approved: true,
-    created_at: "2025-10-14T00:00:00Z",
-    updated_at: "2025-10-14T00:00:00Z"
+    created_at: "2026-01-10T00:00:00Z",
+    updated_at: "2026-01-10T00:00:00Z"
+  },
+  {
+    cohort_id: "explore-vision-dataset",
+    partner_id: "None",
+    imageSrc: "/Images/explore_vision_dataset.png",
+    tag: "Foundational",
+    title: "Explore Vision Dataset",
+    short_description: "Build image dataset through EDA, augmentation, and professional data loading workflows", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
+    description: "This cohort focuses on the real engineering of image datasets. Collecting and cleaning images, to performing deep visual EDA, designing smart augmentations, and building efficient dataset loaders. Learners will work hands-on with intraoral medical image datasets, ensuring real-world relevance. By the end, they'll convert raw images into a structured, validated dataset with documentation and visual insights.",
+    startDate: "Jan. 18, 2026",
+    duration: "4 Weeks",
+    goal: [
+            "Train students to build high-quality image datasets.",
+            "Mastering the skills of data visual analysis, augmentation engineering, and dataset pipeline design which are the core foundation of strong Computer Vision systems."
+        ],
+    dataset: "~1850 intraoral images from 235 patients aikosh.indiaai.gov.in",
+    methods: [],
+    milestones: [
+            "Project Kickoff, explore data. GitHub setup.",
+            "Analyze the images.",
+            "Augmentation",
+            "Data Loader implemented"
+          ],
+    deliverables:[
+            "GitHub setup. Code for reading the data.",
+            "Visual EDA Notebook.;Plots for class distribution, brightness, aspect ratios.;Interpretation of findings.",
+            "Augmentation pipeline, before and after visualization.",
+            "Documentation and code checked in GitHub. Pipeline flow diagram."
+          ],
+    documents_list: "",
+    key_learnings: "Perform Visual EDA beyond folder inspection.;Analyze class balance, brightness trends, aspect ratios, & quality.;Design smart augmentation pipelines (Albumentations / Keras).;Build efficient Dataset loaders.",
+    social_engagement: "",
+    evaluations: "Dataset Quality: Clean, consistent, structured, medically usable. Visual EDA Depth: Meaningful insights + clarity of analysis. Engineering Skill: Loader performance, augmentation design, coding practices",
+    skill_tags: ["Python", "EDA", "Augmentation"],
+    fees: 299,
+    current_version: "v1.0",
+    is_approved: true,
+    created_at: "2026-01-10T00:00:00Z",
+    updated_at: "2026-01-10T00:00:00Z"
+  },
+  {
+    cohort_id: "timeseries-forcasting",
+    partner_id: "None",
+    imageSrc: "/Images/timeseries_prediction.png",
+    tag: "Foundational",
+    title: "Timeseries: Predicting Agricultural prices with ML",
+    short_description: "Forecast future prices using real-world time series techniques, feature engineering, and meaningful evaluation", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
+    description: "This cohort teaches how real forecasting systems are engineered step by step. Students begin with understanding how time series works, splitting past vs future correctly, and establishing a naive baseline. They then move to feature engineering with lag features and train models like Linear Regression and Random Forest. The focus is on real evaluation, calculating RMSE/MAE, plotting Actual vs Predicted curves, and understanding why models behave the way they do using real Indian commodity price data.",
+    startDate: "Jan. 20, 2026",
+    duration: "4 Weeks",
+    goal: [
+            "Help students practically understand how forecasting works in the real world.",
+            "Build ML-based time series models, evaluate predictions correctly.", 
+            "Develop intuition about when and why models fail."
+        ],
+    dataset: "Wise Daily Market Prices of Agricultural Commodities https://aikosh.indiaai.gov.in/home/datasets/details/variety_wise_daily_market_prices_of_commodity.html",
+    methods: [],
+    milestones: [
+            "Project Kickoff, Statistical models.",
+            "Baseline model. Lag features.",
+            "Predictions using Linear Regression and Random Forest.",
+            "Evaluation."
+          ],
+    deliverables:[
+            "Project and Github setup. Code for statistical models.",
+            "Code for naive baseline model and lag features. Baseline metric recorded",
+            "Code for linear regression from scratch and random forest training. Record metrics.",
+            "Code for RMSE & MAE calculated. Documentation and code review."
+          ],
+    documents_list: " ",
+    key_learnings: "Understand time series structure(trend, lag dependency, temporal direction).;Build a baseline “naive” model.;Engineer Lag Features (1-day, 7-day, etc.).;Train Linear Regression/Random Forest forecasting models.;Calculate and interpret RMSE & MAE",
+    social_engagement: " ",
+    evaluations: "Model Engineering Quality: Pipeline correctness, implementation quality., Evaluation Depth: Metrics + meaningful reasoning., Visualization & Storytelling: Clear charts + interpretation., Documentation: Clear README, documentation, reproducibility.",
+    skill_tags: ["Python", "Data Cleaning", "Feature Enineering", "Model Training", "Evaluation"],
+    fees: 299,
+    current_version: "v1.0",
+    is_approved: true,
+    created_at: "2026-01-10T00:00:00Z",
+    updated_at: "2026-01-10T00:00:00Z"
   },
 ];
 

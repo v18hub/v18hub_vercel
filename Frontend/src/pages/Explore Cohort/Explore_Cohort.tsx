@@ -31,7 +31,8 @@ export type Cohort = {
 };
 
 const tagMap: Record<string, { display: string; slug: string }> = {
-  industry: { display: "Industrial Cohorts", slug: "industry-cohorts" },
+  industry: { display: "Industry Cohorts", slug: "industry-cohorts" },
+  applied: { display: "Applied Cohorts", slug: "applied-cohorts" },
   foundational: { display: "Foundational Cohorts", slug: "foundational-cohorts" },
   webinar: { display: "Webinars", slug: "webinars" },
 };
@@ -73,23 +74,73 @@ const Explore_Cohort = () => {
           const { display: displayTag, slug: sectionSlug } = tagMap[tagKey];
           const sectionId = `section-${sectionSlug}`;
           const isWebinar = tagKey === "webinar";
+          const isFoundational = tagKey === "foundational";
 
           return (
             <section key={tagKey} id={sectionId} className="scroll-mt-20">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#294b3c] text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#294b3c] text-center mb-8">
                 {displayTag}
               </h2>
 
-              {/* PERFECT CENTERED LAYOUT */}
+              {/* Descriptive text - clean, left-aligned, no bold */}
+              <div className="max-w-4xl mx-auto text-left text-gray-700 text-[1.05rem] leading-7 mb-10 px-4 md:px-8 lg:px-12">
+                {tagKey === "industry" && (
+                  <p>
+                    Cohorts built in collaboration with industry partners or startups. 
+                    Learners work on partner-driven datasets, constraints, and workflows, 
+                    closely mirroring real-world engineering environments. 
+                    The focus is on engineering depth, system design, deployment-ready thinking, 
+                    and projects that stand out strongly on your portfolio.
+                    <br /><br />
+                    Industry Cohorts are priced based on depth, duration, and level of collaboration.
+                  </p>
+                )}
+
+                {tagKey === "applied" && (
+                  <p>
+                    Production-oriented cohorts where learners build complete, end-to-end AI systems 
+                    using real datasets and authentic problem statements. 
+                    Strong emphasis on system design, engineering depth, and deployment-ready thinking. 
+                    Each cohort ends with a production-style project that significantly strengthens 
+                    your portfolio without direct industry collaboration.
+                    <br /><br />
+                    Applied Cohorts are priced based on depth, duration, and complexity.
+                  </p>
+                )}
+
+                {tagKey === "foundational" && (
+                  <p>
+                    Designed to help learners build confidence and learn how to create real AI systems. 
+                    These are short, guided, hands-on programs using realistic datasets, 
+                    no industry partner involved. 
+                    Each cohort results in a completed mini-project you can confidently add to your portfolio.
+                    <br /><br />
+                    👉 Foundational Cohorts have a fixed and affordable price. Fees is fully adjustable 
+                    on upgrading to an Applied or Industry Cohort.
+                    <br />
+                    👉 If a learner is unable to keep up within the first week of the Foundational Cohort, the full fees will be refunded.
+                  </p>
+                )}
+
+                {tagKey === "webinar" && (
+                  <p>
+                    Quick, interactive sessions (2–3 hours) designed to spark awareness, 
+                    simplify complex concepts, and introduce you to emerging technologies 
+                    in an engaging way.
+                  </p>
+                )}
+              </div>
+
+              {/* Cards Grid */}
               <div className="flex flex-wrap justify-center gap-8 px-4">
                 {cohorts.map((cohort) => (
                   <Link
                     key={cohort.cohort_id}
                     to={`/cohort/${cohort.cohort_id}`}
-                    className="block group"
+                    className="block group w-full max-w-[380px]"
                   >
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 w-80 md:w-96 h-full flex flex-col">
-                      {/* Image - Fixed Height & Full Width */}
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                      {/* Image */}
                       <div className="h-48 overflow-hidden bg-gray-100">
                         <img
                           src={cohort.imageSrc}
@@ -122,9 +173,16 @@ const Explore_Cohort = () => {
                         )}
 
                         {/* Duration */}
-                        <p className="text-sm text-gray-600 mb-4">
+                        <p className="text-sm text-gray-600 mb-2">
                           <strong>Duration:</strong> {cohort.duration}
                         </p>
+
+                        {/* Price - only for Foundational */}
+                        {isFoundational && (
+                          <p className="text-lg font-bold text-[#6A1F1B] mb-4 text-center">
+                            ₹{cohort.fees.toLocaleString("en-IN")}
+                          </p>
+                        )}
 
                         {/* Buttons */}
                         <div className="mt-auto flex gap-3 justify-center">

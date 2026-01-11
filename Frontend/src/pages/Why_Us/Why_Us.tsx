@@ -5,7 +5,7 @@ const Why_Us = () => {
 
   const steps = [
     {
-      img: "/Images/forecasting_and_timseries.jpg",
+      img: "/Images/forecasting_and_timeseries.jpg",
       title: "Start with Real Problems",
       desc: "Each cohort is built around actual industry challenges or real-world data.",
     },

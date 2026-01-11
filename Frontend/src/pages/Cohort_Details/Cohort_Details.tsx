@@ -18,15 +18,22 @@ const CohortDetails = () => {
     : cohort.key_learnings?.split(";").map((s) => s.trim()).filter(Boolean) || [];
 
   let ZOHO_FORM_URL = `https://forms.zohopublic.com/yourorg/form/Register/formperma/xxxx?cohort_id=${cohort.cohort_id}`;
-  if (cohort.cohort_id === "2") {
-    ZOHO_FORM_URL = "https://forms.gle/VSKcAgdCkK6E4draA";
-  } else if (cohort.cohort_id === "3") {
-    ZOHO_FORM_URL = "https://forms.gle/6mnx5MSJYJAvnz6V6";
-  } else if (cohort.cohort_id === "4") {
-    ZOHO_FORM_URL = "https://forms.gle/Zt9XaP4oRL1hkEcbA";
-  } else if (cohort.cohort_id === "1") {
+  if (cohort.cohort_id === "predict-agri-commodity-prices") {
+    ZOHO_FORM_URL = "https://forms.gle/cXh4hooaC1ytYfB68"; // "https://forms.gle/VSKcAgdCkK6E4draA";
+  } else if (cohort.cohort_id === "automate-healthcare-claims") {
+    ZOHO_FORM_URL = "https://forms.gle/e7o4rcttGYsBjSGX8"; // "https://forms.gle/6mnx5MSJYJAvnz6V6";
+  } else if (cohort.cohort_id === "intraoral-lesion") {
+    ZOHO_FORM_URL = "https://forms.gle/PZwQZEi5KRS33WmU9"; // "https://forms.gle/Zt9XaP4oRL1hkEcbA";
+  } else if (cohort.cohort_id === "startup-funding-rag") {
     ZOHO_FORM_URL = "https://forms.gle/RQgCxcHpSy6n42GH7";
-  }
+  } else if(cohort.cohort_id === "collect-process-rag-data") {
+    ZOHO_FORM_URL = "https://forms.gle/MSju23hBmYpBEzjF7";
+  } else if (cohort.cohort_id === "explore-vision-dataset") {
+    ZOHO_FORM_URL = "https://forms.gle/BL3f3ubZFDac7ED47"
+  } else if (cohort.cohort_id === "timeseries-forcasting") {
+    ZOHO_FORM_URL = "https://forms.gle/UYvMhqoZkLaDKohj7"
+  } 
+
 
   // ── Removed strikethrough logic: now simply display original values ──
   const displayStartDate = () => cohort.startDate;

@@ -1,5 +1,5 @@
 // src/pages/Explore_Cohort.tsx
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { cohortsData } from "../../data/cohorts";
 
@@ -39,6 +39,9 @@ const tagMap: Record<string, { display: string; slug: string }> = {
 
 const Explore_Cohort = () => {
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const activeSection = searchParams.get("section");
 
   // Group cohorts by tag
   const groupedCohorts = cohortsData.reduce((acc, cohort) => {
@@ -51,20 +54,30 @@ const Explore_Cohort = () => {
   const tagOrder = Object.keys(tagMap);
   const orderedTags = tagOrder.filter((tag) => groupedCohorts[tag]);
 
-  // Smooth scroll to section
+  // Handle scrolling + optional hash → query param migration
   useEffect(() => {
-    const hash = location.hash.slice(1);
-    if (!hash) return;
-
-    const targetId = `section-${hash}`;
-    const el = document.getElementById(targetId);
-
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+    // 1. Prefer new query param
+    if (activeSection) {
+      const targetId = `section-${activeSection}`;
+      const el = document.getElementById(targetId);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+      }
+      return;
     }
-  }, [location.hash]);
+
+    // 2. Fallback: if someone uses old #hash link → convert to ?section= (shareable upgrade)
+    const hash = location.hash.slice(1);
+    if (hash) {
+      const possibleSlug = tagMap[hash]?.slug || hash; // in case someone uses raw tag
+      if (Object.values(tagMap).some((t) => t.slug === possibleSlug)) {
+        setSearchParams({ section: possibleSlug }, { replace: true });
+        // After replace, the next effect run will handle scrolling
+      }
+    }
+  }, [activeSection, location.hash, setSearchParams]);
 
   return (
     <div className="bg-[#F6F5ED] py-12 font-open-sans">
@@ -82,7 +95,7 @@ const Explore_Cohort = () => {
                 {displayTag}
               </h2>
 
-              {/* Descriptive text - clean, left-aligned, no bold */}
+              {/* Descriptive text */}
               <div className="max-w-4xl mx-auto text-left text-gray-700 text-[1.05rem] leading-7 mb-10 px-4 md:px-8 lg:px-12">
                 {tagKey === "industry" && (
                   <p>

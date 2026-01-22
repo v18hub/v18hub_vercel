@@ -54,7 +54,7 @@ const Navbar = () => {
   return (
     <div className="cursor-pointer px-[1.5rem] flex lg:justify-stretch lg:gap-[21vw] justify-between items-center h-[72px] w-full relative z-[1000] bg-white">
       
-      {/* LOGO — Slightly bigger & more visible (from h-10 → h-14) */}
+      {/* LOGO */}
       <Link
         to="/"
         onClick={() => setClickSelected(null)}
@@ -64,12 +64,10 @@ const Navbar = () => {
           src="/logo/logo_v18hub_header.png"
           alt="v18hub logo"
           className="h-14 w-auto object-contain drop-shadow-sm"
-          // ↑ h-14 = ~40% bigger than original h-10
-          // drop-shadow-sm adds subtle depth → instantly more premium & visible
         />
       </Link>
 
-      {/* DESKTOP MENU — 100% unchanged */}
+      {/* DESKTOP MENU */}
       <div className="hidden lg:flex items-center justify-center gap-[2rem] text-[1.1rem] p-2 relative">
         {menuItems.map(([title, subItems]) => {
           const hasSubmenu = Array.isArray(subItems) && subItems.length > 0;
@@ -86,13 +84,13 @@ const Navbar = () => {
               {hasSubmenu ? (
                 <div
                   className={`flex flex-col items-center p-2 font-[700] transition-colors ${
-                    clickSelected === title ? "text-[#537367]" : "text-[#B2B2B2]"
+                    clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
                   }`}
                 >
                   <span className="leading-none">{title}</span>
                   <div
                     className={`h-[2px] w-full mt-1 transition-all duration-300 ${
-                      hoverSelected === title ? "bg-[#537367] rounded-2xl" : "bg-transparent"
+                      hoverSelected === title ? "bg-[#294b3c] rounded-2xl" : "bg-transparent"
                     }`}
                   />
                 </div>
@@ -101,13 +99,13 @@ const Navbar = () => {
                   to={path}
                   onClick={() => handleNavClick(title, hasSubmenu)}
                   className={`flex flex-col items-center p-2 font-[700] transition-colors ${
-                    clickSelected === title ? "text-[#537367]" : "text-[#B2B2B2]"
+                    clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
                   }`}
                 >
                   <span className="leading-none">{title}</span>
                   <div
                     className={`h-[2px] w-full mt-1 transition-all duration-300 ${
-                      hoverSelected === title ? "bg-[#537367] rounded-2xl" : "bg-transparent"
+                      hoverSelected === title ? "bg-[#294b3c] rounded-2xl" : "bg-transparent"
                     }`}
                   />
                 </Link>
@@ -116,21 +114,42 @@ const Navbar = () => {
               {hasSubmenu && hoverSelected === title && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-2xl py-4 w-[13rem] flex flex-col items-stretch z-50">
                   {subItems!.map((sub) => {
-                    let subPath = `/${toSlug(title)}/${toSlug(sub)}`;
-                    if (title === "Programs") {
-                      const sectionSlug = toSlug(sub);
-                      subPath = `/explore-cohorts#${sectionSlug}`;
-                    }
+                    const sectionSlug = toSlug(sub);
+                    const isPrograms = title === "Programs";
+                    const targetPath = isPrograms
+                      ? `/explore-cohorts?section=${sectionSlug}`
+                      : `/${toSlug(title)}/${toSlug(sub)}`;
+
                     return (
                       <Link
                         key={sub}
-                        to={subPath}
+                        to={targetPath}
                         onClick={() => {
                           setClickSelected(title);
                           setHoverSelected(null);
+
+                          if (isPrograms) {
+                            // Check if we are already on this exact page + section
+                            const currentSection = new URLSearchParams(location.search).get("section");
+                            const isAlreadyThere =
+                              location.pathname === "/explore-cohorts" &&
+                              currentSection === sectionSlug;
+
+                            if (isAlreadyThere) {
+                              // Force scroll immediately
+                              const targetId = `section-${sectionSlug}`;
+                              const el = document.getElementById(targetId);
+                              if (el) {
+                                el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                // Optional: adjust for fixed navbar overlap
+                                // window.scrollBy(0, -100);
+                              }
+                            }
+                            // If not already there → normal navigation + Explore_Cohort useEffect will handle scroll
+                          }
                         }}
                       >
-                        <div className="font-medium px-4 py-2 hover:bg-[#385248] cursor-pointer whitespace-nowrap">
+                        <div className="font-medium px-4 py-2 hover:bg-[#294b3c] hover:text-[#f6f5ec] cursor-pointer whitespace-nowrap transition-colors duration-200">
                           {sub}
                         </div>
                       </Link>
@@ -143,7 +162,7 @@ const Navbar = () => {
         })}
       </div>
 
-      {/* MOBILE DRAWER — unchanged */}
+      {/* MOBILE DRAWER */}
       <div className="lg:hidden block">
         <Menu size={28} className="cursor-pointer" onClick={() => setDrawerOpen(true)} />
 
@@ -156,7 +175,7 @@ const Navbar = () => {
             drawerOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex justify-between items-center p-4 border-b border-[#537367]">
+          <div className="flex justify-between items-center p-4 border-b border-[#294b3c]">
             <div className="font-extrabold text-lg text-black">v18hub</div>
             <X size={26} className="cursor-pointer text-black" onClick={() => setDrawerOpen(false)} />
           </div>
@@ -178,20 +197,21 @@ const Navbar = () => {
                       }
                     }}
                     className={`p-2 cursor-pointer font-[650] ${
-                      clickSelected === title ? "text-[#25473A]" : "text-[#B2B2B2]"
+                      clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
                     }`}
                   >
                     {hasSubmenu ? title : <Link to={path}>{title}</Link>}
                   </div>
 
                   {hasSubmenu && hoverSelected === title && (
-                    <div className="mt-1 flex flex-col gap-1">
+                    <div className="mt-1 flex flex-col gap-1 pl-4">
                       {subItems!.map((sub) => {
-                        let subPath = `/${toSlug(title)}/${toSlug(sub)}`;
-                        if (title === "Programs") {
-                          const sectionSlug = toSlug(sub);
-                          subPath = `/explore-cohorts#${sectionSlug}`;
-                        }
+                        const sectionSlug = toSlug(sub);
+                        const isPrograms = title === "Programs";
+                        const subPath = isPrograms
+                          ? `/explore-cohorts?section=${sectionSlug}`
+                          : `/${toSlug(title)}/${toSlug(sub)}`;
+
                         return (
                           <Link
                             key={sub}
@@ -200,9 +220,26 @@ const Navbar = () => {
                               setClickSelected(title);
                               setHoverSelected(null);
                               setDrawerOpen(false);
+
+                              if (isPrograms) {
+                                const currentSection = new URLSearchParams(location.search).get("section");
+                                const isAlreadyThere =
+                                  location.pathname === "/explore-cohorts" &&
+                                  currentSection === sectionSlug;
+
+                                if (isAlreadyThere) {
+                                  const targetId = `section-${sectionSlug}`;
+                                  const el = document.getElementById(targetId);
+                                  if (el) {
+                                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    // Optional: adjust for navbar height
+                                    // window.scrollBy(0, -80);
+                                  }
+                                }
+                              }
                             }}
                           >
-                            <div className="px-2 py-1 font-medium text-sm text-[#6B6B6B] hover:text-[#25473A]">
+                            <div className="px-2 py-1 font-medium text-sm text-[#294b3c] hover:text-[#f6f5ec] hover:bg-[#294b3c] rounded transition-colors duration-200">
                               {sub}
                             </div>
                           </Link>

@@ -88,7 +88,7 @@ export const cohortsData: Cohort[] = [
     title: "Startup Funding RAG Application",
     short_description: "A RAG-based project that uses LLMs to provide insights on startup fundings information.", // by scraping, processing, and querying real-world data from startup portals.",
     description: "This project aims to develop a Retrieval-Augmented Generation (RAG) application that delivers comprehensive insights into startup funding - including details about investors, funding rounds, sectors, and policies. Learners will gain hands-on experience in collecting both structured and unstructured data from startup portals, performing data cleaning and preprocessing, chunking and embedding the content, storing it efficiently in a vector database, and leveraging Large Language Models (LLMs) to query and generate meaningful insights evaluated with relevant metrices.",
-    startDate: "Jan 17, 2026",
+    startDate: "Feb 21, 2026",
     duration: "8 Weeks",
     goal: ["Train students to build RAG pipelines on real-world startup data.",
         "Create a Q&A application that answers questions about startup funding.",
@@ -300,7 +300,7 @@ export const cohortsData: Cohort[] = [
     title: "Collect and Process Data for RAG Systems",
     short_description: "Data pipeline for GenAI: Scraping, cleaning, chunking, embedding and storing data", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "Data preparation for AI systems is the most critical part of AI systems. Real GenAI doesn’t work on magic prompts, it runs on clean knowledge bases, smart chunking, strong embeddings, and reliable retrieval pipelines. In this 3-week cohort, students will build a complete ingestion pipeline from scratch: scraping structured documentation, cleaning messy HTML into usable Markdown, experimenting with advanced chunking strategies, embedding data using modern models, and storing everything in Milvus.",
-    startDate: "Jan. 16, 2026",
+    startDate: "Feb. 16, 2026",
     duration: "3 Weeks",
     goal: [
             "Train students in the core engineering layer of GenAI systems.",
@@ -337,7 +337,7 @@ export const cohortsData: Cohort[] = [
     title: "Explore Vision Dataset",
     short_description: "Build image dataset through EDA, augmentation, and professional data loading workflows", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This cohort focuses on the real engineering of image datasets. Collecting and cleaning images, to performing deep visual EDA, designing smart augmentations, and building efficient dataset loaders. Learners will work hands-on with intraoral medical image datasets, ensuring real-world relevance. By the end, they'll convert raw images into a structured, validated dataset with documentation and visual insights.",
-    startDate: "Jan. 18, 2026",
+    startDate: "Feb. 18, 2026",
     duration: "4 Weeks",
     goal: [
             "Train students to build high-quality image datasets.",
@@ -376,7 +376,7 @@ export const cohortsData: Cohort[] = [
     title: "Timeseries: Predicting Agricultural prices with ML",
     short_description: "Forecast future prices using real-world time series techniques, feature engineering, and meaningful evaluation", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This cohort teaches how real forecasting systems are engineered step by step. Students begin with understanding how time series works, splitting past vs future correctly, and establishing a naive baseline. They then move to feature engineering with lag features and train models like Linear Regression and Random Forest. The focus is on real evaluation, calculating RMSE/MAE, plotting Actual vs Predicted curves, and understanding why models behave the way they do using real Indian commodity price data.",
-    startDate: "Jan. 20, 2026",
+    startDate: "Feb. 20, 2026",
     duration: "4 Weeks",
     goal: [
             "Help students practically understand how forecasting works in the real world.",

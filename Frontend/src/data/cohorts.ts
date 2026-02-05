@@ -34,7 +34,7 @@ export const cohortsData: Cohort[] = [
     title: "Predicting Agricultural Commodity Prices",
     short_description: "A predictive analytics project that forecasts next week’s commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
-    startDate: "Jan. 29, 2026",
+    startDate: "Feb. 28, 2026",
     duration: "8 Weeks",
     goal: [
             "Predict next week modal prices for key crops and send community alerts to help farmers choose sale timing and market, reducing vulnerability to price volatility. The project aims to:",

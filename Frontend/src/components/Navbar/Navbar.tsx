@@ -12,12 +12,10 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const location = useLocation();
 
-  const handleNavClick = (title: string, hasSubmenu: boolean) => {
-    if (!hasSubmenu) {
-      setClickSelected(title);
-      setHoverSelected(null);
-      setDrawerOpen(false);
-    }
+  const handleNavClick = (title: string) => {
+    setClickSelected(title);
+    setHoverSelected(null);
+    setDrawerOpen(false);
   };
 
   const menuItems: [string, string[]?][] = [
@@ -29,8 +27,9 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const current = location.pathname.toLowerCase().replace(/\/+$/, "");
-    if (current.startsWith("/registration/")) {
+    const currentPath = location.pathname.toLowerCase().replace(/\/+$/, "");
+
+    if (currentPath.startsWith("/registration/")) {
       setClickSelected("OurCommunity");
       setHoverSelected(null);
       setDrawerOpen(false);
@@ -38,12 +37,26 @@ const Navbar = () => {
     }
 
     const match = menuItems.find(([title, subs]) => {
-      const parent = `/${toSlug(title)}`;
-      if (subs && subs.length) {
-        if (current === parent || current.startsWith(parent + "/")) return true;
-        return subs.some((sub) => current.startsWith(`/${toSlug(title)}/${toSlug(sub)}`));
+      const slug = toSlug(title);
+      const parentPath = `/${slug}`;
+
+      // Exact match on parent path
+      if (currentPath === parentPath) return true;
+
+      // Special case: highlight "Programs" on /explore-cohorts (with or without ?section)
+      if (title === "Programs" && currentPath === "/explore-cohorts") {
+        return true;
       }
-      return current === parent;
+
+      // Submenu items
+      if (subs && subs.length) {
+        return subs.some((sub) => {
+          const subSlug = toSlug(sub);
+          return currentPath.startsWith(`/${slug}/${subSlug}`);
+        });
+      }
+
+      return false;
     });
 
     setClickSelected(match ? match[0] : null);
@@ -53,7 +66,6 @@ const Navbar = () => {
 
   return (
     <div className="cursor-pointer px-[1.5rem] flex lg:justify-stretch lg:gap-[21vw] justify-between items-center h-[72px] w-full relative z-[1000] bg-white">
-      
       {/* LOGO */}
       <Link
         to="/"
@@ -72,7 +84,8 @@ const Navbar = () => {
         {menuItems.map(([title, subItems]) => {
           const hasSubmenu = Array.isArray(subItems) && subItems.length > 0;
           const slug = toSlug(title);
-          const path = `/${slug}`;
+          const isPrograms = title === "Programs";
+          const mainPath = isPrograms && hasSubmenu ? "/explore-cohorts" : `/${slug}`;
 
           return (
             <div
@@ -81,77 +94,52 @@ const Navbar = () => {
               onMouseEnter={() => setHoverSelected(title)}
               onMouseLeave={() => setHoverSelected(null)}
             >
-              {hasSubmenu ? (
+              <Link
+                to={mainPath}
+                onClick={() => handleNavClick(title)}
+                className={`flex flex-col items-center p-2 font-[700] transition-colors ${
+                  clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
+                }`}
+              >
+                <span className="leading-none">{title}</span>
                 <div
-                  className={`flex flex-col items-center p-2 font-[700] transition-colors ${
-                    clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
+                  className={`h-[2px] w-full mt-1 transition-all duration-300 ${
+                    hoverSelected === title ? "bg-[#294b3c] rounded-2xl" : "bg-transparent"
                   }`}
-                >
-                  <span className="leading-none">{title}</span>
-                  <div
-                    className={`h-[2px] w-full mt-1 transition-all duration-300 ${
-                      hoverSelected === title ? "bg-[#294b3c] rounded-2xl" : "bg-transparent"
-                    }`}
-                  />
-                </div>
-              ) : (
-                <Link
-                  to={path}
-                  onClick={() => handleNavClick(title, hasSubmenu)}
-                  className={`flex flex-col items-center p-2 font-[700] transition-colors ${
-                    clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
-                  }`}
-                >
-                  <span className="leading-none">{title}</span>
-                  <div
-                    className={`h-[2px] w-full mt-1 transition-all duration-300 ${
-                      hoverSelected === title ? "bg-[#294b3c] rounded-2xl" : "bg-transparent"
-                    }`}
-                  />
-                </Link>
-              )}
+                />
+              </Link>
 
               {hasSubmenu && hoverSelected === title && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-2xl py-4 w-[13rem] flex flex-col items-stretch z-50">
                   {subItems!.map((sub) => {
                     const sectionSlug = toSlug(sub);
-                    const isPrograms = title === "Programs";
                     const targetPath = isPrograms
                       ? `/explore-cohorts?section=${sectionSlug}`
-                      : `/${toSlug(title)}/${toSlug(sub)}`;
+                      : `/${slug}/${sectionSlug}`;
 
                     return (
                       <Link
                         key={sub}
                         to={targetPath}
-                        onClick={() => {
-                          setClickSelected(title);
-                          setHoverSelected(null);
+                        onClick={(e) => {
+                          handleNavClick(title);
 
-                          if (isPrograms) {
-                            // Check if we are already on this exact page + section
-                            const currentSection = new URLSearchParams(location.search).get("section");
-                            const isAlreadyThere =
-                              location.pathname === "/explore-cohorts" &&
-                              currentSection === sectionSlug;
-
-                            if (isAlreadyThere) {
-                              // Force scroll immediately
-                              const targetId = `section-${sectionSlug}`;
-                              const el = document.getElementById(targetId);
-                              if (el) {
-                                el.scrollIntoView({ behavior: "smooth", block: "start" });
-                                // Optional: adjust for fixed navbar overlap
-                                // window.scrollBy(0, -100);
-                              }
+                          // If already on this exact URL → force scroll to section
+                          const currentFullPath = location.pathname + location.search;
+                          if (currentFullPath === targetPath) {
+                            e.preventDefault();
+                            const targetId = `section-${sectionSlug}`;
+                            const el = document.getElementById(targetId);
+                            if (el) {
+                              el.scrollIntoView({ behavior: "smooth", block: "start" });
+                              // Optional: adjust for fixed navbar height if needed
+                              // window.scrollBy(0, -80);
                             }
-                            // If not already there → normal navigation + Explore_Cohort useEffect will handle scroll
                           }
                         }}
+                        className="font-medium px-4 py-2 hover:bg-[#294b3c] hover:text-[#f6f5ec] cursor-pointer whitespace-nowrap transition-colors duration-200"
                       >
-                        <div className="font-medium px-4 py-2 hover:bg-[#294b3c] hover:text-[#f6f5ec] cursor-pointer whitespace-nowrap transition-colors duration-200">
-                          {sub}
-                        </div>
+                        {sub}
                       </Link>
                     );
                   })}
@@ -183,65 +171,53 @@ const Navbar = () => {
           <div className="flex flex-col p-4 space-y-2">
             {menuItems.map(([title, subItems]) => {
               const hasSubmenu = Array.isArray(subItems) && subItems.length > 0;
-              const path = `/${toSlug(title)}`;
+              const slug = toSlug(title);
+              const isPrograms = title === "Programs";
+              const mainPath = isPrograms && hasSubmenu ? "/explore-cohorts" : `/${slug}`;
 
               return (
                 <div key={title}>
-                  <div
-                    onClick={() => {
-                      if (hasSubmenu) {
-                        setHoverSelected(hoverSelected === title ? null : title);
-                      } else {
-                        handleNavClick(title, hasSubmenu);
-                        setDrawerOpen(false);
-                      }
-                    }}
-                    className={`p-2 cursor-pointer font-[650] ${
+                  <Link
+                    to={mainPath}
+                    onClick={() => handleNavClick(title)}
+                    className={`p-2 cursor-pointer font-[650] block ${
                       clickSelected === title ? "text-[#294b3c]" : "text-[#a5b6ae]"
                     }`}
                   >
-                    {hasSubmenu ? title : <Link to={path}>{title}</Link>}
-                  </div>
+                    {title}
+                  </Link>
 
-                  {hasSubmenu && hoverSelected === title && (
-                    <div className="mt-1 flex flex-col gap-1 pl-4">
+                  {hasSubmenu && (
+                    <div className="mt-1 flex flex-col gap-1 pl-6">
                       {subItems!.map((sub) => {
                         const sectionSlug = toSlug(sub);
-                        const isPrograms = title === "Programs";
-                        const subPath = isPrograms
+                        const targetPath = isPrograms
                           ? `/explore-cohorts?section=${sectionSlug}`
-                          : `/${toSlug(title)}/${toSlug(sub)}`;
+                          : `/${slug}/${sectionSlug}`;
 
                         return (
                           <Link
                             key={sub}
-                            to={subPath}
-                            onClick={() => {
-                              setClickSelected(title);
-                              setHoverSelected(null);
-                              setDrawerOpen(false);
+                            to={targetPath}
+                            onClick={(e) => {
+                              handleNavClick(title);
 
-                              if (isPrograms) {
-                                const currentSection = new URLSearchParams(location.search).get("section");
-                                const isAlreadyThere =
-                                  location.pathname === "/explore-cohorts" &&
-                                  currentSection === sectionSlug;
-
-                                if (isAlreadyThere) {
-                                  const targetId = `section-${sectionSlug}`;
-                                  const el = document.getElementById(targetId);
-                                  if (el) {
-                                    el.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    // Optional: adjust for navbar height
-                                    // window.scrollBy(0, -80);
-                                  }
+                              // If already on this exact URL → force scroll to section
+                              const currentFullPath = location.pathname + location.search;
+                              if (currentFullPath === targetPath) {
+                                e.preventDefault();
+                                const targetId = `section-${sectionSlug}`;
+                                const el = document.getElementById(targetId);
+                                if (el) {
+                                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                  // Optional: adjust for fixed navbar height if needed
+                                  // window.scrollBy(0, -80);
                                 }
                               }
                             }}
+                            className="px-2 py-1 font-medium text-sm text-[#294b3c] hover:text-[#f6f5ec] hover:bg-[#294b3c] rounded transition-colors duration-200"
                           >
-                            <div className="px-2 py-1 font-medium text-sm text-[#294b3c] hover:text-[#f6f5ec] hover:bg-[#294b3c] rounded transition-colors duration-200">
-                              {sub}
-                            </div>
+                            {sub}
                           </Link>
                         );
                       })}

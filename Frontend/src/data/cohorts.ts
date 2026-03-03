@@ -316,7 +316,7 @@ export const cohortsData: Cohort[] = [
     title: "Data Science Streams",
     short_description: "Exploring the diverse streams of Data Science, the essential skills required for each, and the career opportunities they open up.",
     description: "Free webinar to gain a clear understanding of the different streams within Data Science - including Data Analytics, Machine Learning, Artificial Intelligence, Data Engineering, and Business Intelligence. Learn about the core skill sets, tools, and technologies needed in each stream, along with insights into typical job roles, growth trajectories, and real-world applications. This session is ideal for students and professionals looking to identify their ideal career path in the rapidly evolving world of Data Science.",
-    startDate: "Mar 15, 2026",
+    startDate: "Coming Soon",
     duration: "2 hours",
     level: "Beginners / Intermediate",
     goal: [

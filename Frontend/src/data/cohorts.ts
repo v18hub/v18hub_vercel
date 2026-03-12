@@ -161,7 +161,7 @@ export const cohortsData: Cohort[] = [
     title: "Automating Medical Insurance Claims Using AI Agents - Industry Collaboration with Sarvatra.ai",
     short_description: "Build AI-driven agent system that automates medical insurance workflows.",
     description: "In this project, learners will design an AI agent system tailored for the medical insurance domain. The system will intelligently read and analyze reports, identify missing or inconsistent information, assign tasks to relevant departments, and reprocess updated data while ensuring compliance with insurer-specific rules. By working with synthetic insurance claims, learners will simulate a real-world workflow automation pipeline safely and efficiently, gaining hands-on experience in AI-driven document processing, rule-based validation, and healthcare process automation.",
-    startDate: "Mar 06, 2026",
+    startDate: "Apr 06, 2026",
     duration: "15 Weeks",
     level: "Intermediate",
     goal: [
@@ -242,7 +242,7 @@ export const cohortsData: Cohort[] = [
     title: "Intraoral Lesion Detection & Analysis",
     short_description: "Build AI models for intraoral detection and analysis.",
     description: "The SMART Intraoral Images Dataset comprises annotated mouth images collected to advance AI-driven dental screening and diagnosis. In this project, learners will develop and train computer vision models to detect oral abnormalities, classify conditions, and explain their predictions through interpretable AI techniques. The cohort focuses on research-based development, encouraging students to benchmark their results against published studies, collaborate through peer review, and build deployable prototypes that demonstrate real-world applicability in dental healthcare.",
-    startDate: "Mar 06, 2026",
+    startDate: "Apr 06, 2026",
     duration: "12 Weeks",
     level: "Intermediate",
     goal: [

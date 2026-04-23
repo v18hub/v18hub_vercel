@@ -299,7 +299,7 @@ export const cohortsData: Cohort[] = [
     evaluations: "Model performance: Accuracy, Precision, Recall, F1, ROC-AUC. Explainability quality: Do Grad-CAM heatmaps highlight relevant mouth regions consistently?.",
     skill_tags: ["Deep Learning", "Convolutional Neural Networks (CNNs)", "Medical Image Analysis", "Augmentation", "Segmentation", "Model Evaluation and Benchmarking", "Transfer Learning"],
     cohort_card_skill_tags: ["Deep Learning", "Model Evaluation", "Transfer Learning"],
-    fees: 6999,
+    fees: 5999,
     current_version: "v1.0",
     is_approved: true,
     created_at: "2025-10-14T00:00:00Z",

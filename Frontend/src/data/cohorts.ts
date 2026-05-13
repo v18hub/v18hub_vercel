@@ -37,7 +37,7 @@ export const cohortsData: Cohort[] = [
     title: "Predicting Agricultural Commodity Prices",
     short_description: "Build timeseries predictive system that forecasts next week’s agricultural commodity prices.", // and provides farmers with timely alerts to optimize their market decisions and reduce risks from price volatility.",
     description: "This project leverages daily commodity price data - including wholesale maximum, minimum, and modal prices - to analyze market trends and predict future price movements for key crops using time series forecasting models. By identifying factors that influence price fluctuations and visualizing insights through an interactive, real-time dashboard, the system empowers farmers and stakeholders with data-driven alerts and recommendations, helping them choose the best time and market to sell their produce, thereby minimizing losses due to price volatility",
-    startDate: "Apr 28, 2026",
+    startDate: "May 28, 2026",
     duration: "10 Weeks",
     level: "Beginners / Intermediate",
     goal: [
@@ -101,8 +101,8 @@ export const cohortsData: Cohort[] = [
     title: "Startup Funding RAG Application",
     short_description: "RAG-based project that uses LLMs to provide insights on startup fundings information.", // by scraping, processing, and querying real-world data from startup portals.",
     description: "This project aims to develop a Retrieval-Augmented Generation (RAG) application that delivers comprehensive insights into startup funding - including details about investors, funding rounds, sectors, and policies. Learners will gain hands-on experience in collecting both structured and unstructured data from startup portals, performing data cleaning and preprocessing, chunking and embedding the content, storing it efficiently in a vector database, and leveraging Large Language Models (LLMs) to query and generate meaningful insights evaluated with relevant metrices.",
-    startDate: "May 21, 2026",
-    duration: "8 Weeks",
+    startDate: "June 10, 2026",
+    duration: "10 Weeks",
     level: "Beginners / Intermediate",
     goal: ["Train students to build RAG pipelines on real-world startup data.",
         "Create a Q&A application that answers questions about startup funding.",
@@ -161,7 +161,7 @@ export const cohortsData: Cohort[] = [
     title: "Automating Medical Insurance Claims Using AI Agents - Industry Collaboration with Sarvatra.ai",
     short_description: "Build AI-driven agent system that automates medical insurance workflows.",
     description: "In this project, learners will design an AI agent system tailored for the medical insurance domain. The system will intelligently read and analyze reports, identify missing or inconsistent information, assign tasks to relevant departments, and reprocess updated data while ensuring compliance with insurer-specific rules. By working with synthetic insurance claims, learners will simulate a real-world workflow automation pipeline safely and efficiently, gaining hands-on experience in AI-driven document processing, rule-based validation, and healthcare process automation.",
-    startDate: "May 06, 2026",
+    startDate: "June 06, 2026",
     duration: "15 Weeks",
     level: "Intermediate",
     goal: [
@@ -242,7 +242,7 @@ export const cohortsData: Cohort[] = [
     title: "Intraoral Lesion Detection & Analysis",
     short_description: "Build AI models for intraoral detection and analysis.",
     description: "The SMART Intraoral Images Dataset comprises annotated mouth images collected to advance AI-driven dental screening and diagnosis. In this project, learners will develop and train computer vision models to detect oral abnormalities, classify conditions, and explain their predictions through interpretable AI techniques. The cohort focuses on research-based development, encouraging students to benchmark their results against published studies, collaborate through peer review, and build deployable prototypes that demonstrate real-world applicability in dental healthcare.",
-    startDate: "May 06, 2026",
+    startDate: "June 06, 2026",
     duration: "14 Weeks",
     level: "Intermediate",
     goal: [

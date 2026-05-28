@@ -6,7 +6,7 @@ import { ScrollAnimation } from "../../animations/Scroll_Animation";
 // Import all program types
 import { approvedWorkshops } from "../../../data/workshops";
 import { approvedBootcamps } from "../../../data/bootcamps";
-import { cohortsData, type Cohort } from "../../../data/cohorts";
+import { approvedCohorts } from "../../../data/cohorts";
 import { approvedPreviewCohorts } from "../../../data/preview_cohorts";
 
 const On_The_Horizon = () => {
@@ -27,7 +27,7 @@ const On_The_Horizon = () => {
         ...b, 
         program_type: "bootcamp" 
       })),
-      ...cohortsData.map(c => ({ 
+      ...approvedCohorts.map(c => ({ 
         ...c, 
         program_type: "cohort" 
       })),

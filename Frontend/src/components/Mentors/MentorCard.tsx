@@ -4,8 +4,8 @@ import { useState } from "react";
 export type Mentor = {
   id: string;
   name: string;
-  role: string;           // e.g. "Lead Mentor", "Mentor"
-  title: string;          // Professional title
+  role: string;
+  title: string;
   image: string;
   bio: string;
   experience: string;
@@ -15,7 +15,6 @@ export type Mentor = {
 export const MentorCard = ({ mentor }: { mentor: Mentor }) => {
   const [open, setOpen] = useState(false);
 
-  // Split bio for drawer
   const bioParagraphs = mentor.bio
     .split(/\n\n+/)
     .map((para) => para.trim())
@@ -31,14 +30,12 @@ export const MentorCard = ({ mentor }: { mentor: Mentor }) => {
         onKeyDown={(e) => e.key === "Enter" && setOpen(true)}
         className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#a5b6ae] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#546f61]"
       >
-        {/* Image */}
-        <div className="h-64 overflow-hidden bg-[#a5b6ae]">
+        {/* Image - Fixed Aspect Ratio */}
+        <div className="relative h-64 bg-[#a5b6ae] overflow-hidden">
           <img
             src={mentor.image}
             alt={mentor.name}
             loading="lazy"
-            width={400}
-            height={256}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).src = "/Images/mentors/placeholder.jpg";
@@ -59,7 +56,6 @@ export const MentorCard = ({ mentor }: { mentor: Mentor }) => {
             {mentor.experience}
           </p>
 
-          {/* LinkedIn */}
           {mentor.linkedin && mentor.linkedin !== "#" && (
             <a
               href={mentor.linkedin}
@@ -95,16 +91,18 @@ export const MentorCard = ({ mentor }: { mentor: Mentor }) => {
                 ✕
               </button>
 
-              {/* Header */}
+              {/* Header with better image */}
               <div className="flex gap-6 items-start mb-8">
-                <img
-                  src={mentor.image}
-                  alt={mentor.name}
-                  className="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = "/Images/mentors/placeholder.jpg";
-                  }}
-                />
+                <div className="w-24 h-24 rounded-2xl overflow-hidden border-4 border-white shadow-md flex-shrink-0 bg-[#a5b6ae]">
+                  <img
+                    src={mentor.image}
+                    alt={mentor.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = "/Images/mentors/placeholder.jpg";
+                    }}
+                  />
+                </div>
                 <div>
                   <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#546f61] bg-white border border-[#a5b6ae] px-3 py-1 rounded-full mb-2">
                     {mentor.role}

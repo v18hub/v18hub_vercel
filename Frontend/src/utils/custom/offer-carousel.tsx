@@ -2,41 +2,15 @@
 import { useEffect, useRef, useState, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
-export type Cohort = {
-  cohort_id: string;
-  partner_id: string;
-  imageSrc: string;
-  tag: string;
-  title: string;
-  short_description: string;
-  description: string;
-  startDate: string;
-  duration: string;
-  goal: string[];
-  dataset: string;
-  methods: string[];
-  milestones: string[];
-  deliverables: string[];
-  documents_list: string;
-  key_learnings: string;
-  social_engagement: string;
-  evaluations: string;
-  skill_tags: string[];
-  fees: number;
-  current_version: string;
-  is_approved: boolean;
-  created_at: string;
-  updated_at: string;
-};
+import { type Cohort } from "../../data/cohorts";
 
 interface OfferCarouselProps {
   cohorts: Cohort[];
 }
 
 const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
-  const isFoundational = cohort.tag.toLowerCase() === "foundational";
-  const displayTag = cohort.tag.charAt(0).toUpperCase() + cohort.tag.slice(1);
+  const isFoundational = cohort.program_type.toLowerCase() === "preview-cohort";
+  const displayTag = cohort.program_type.charAt(0).toUpperCase() + cohort.program_type.slice(1);
 
   return (
     <div className="h-[560px] w-full flex flex-col bg-white rounded-3xl shadow-xl border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] overflow-hidden">
@@ -89,7 +63,7 @@ const OfferCard = memo(({ cohort }: { cohort: Cohort }) => {
 
           {/* Tag Cohort Label – bigger font */}
           <div className="bg-[#6A1F1B] text-[#f6f5ec] py-2.5 px-4 rounded-2xl text-base font-bold text-center mb-3">
-            {displayTag} Cohort
+            {displayTag}
           </div>
 
           {/* Enroll Button */}

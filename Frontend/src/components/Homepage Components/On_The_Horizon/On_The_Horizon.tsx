@@ -2,27 +2,54 @@
 import { useEffect, useState } from "react";
 import OfferCarousel from "../../../utils/custom/offer-carousel";
 import { ScrollAnimation } from "../../animations/Scroll_Animation";
-import { cohortsData, type Cohort } from "../../../data/cohorts_old";
+
+// Import all program types
+import { approvedWorkshops } from "../../../data/workshops";
+import { approvedBootcamps } from "../../../data/bootcamps";
+import { cohortsData, type Cohort } from "../../../data/cohorts";
+import { approvedPreviewCohorts } from "../../../data/preview_cohorts";
 
 const On_The_Horizon = () => {
-  const [upcomingCohorts, setUpcomingCohorts] = useState<Cohort[]>([]);
+  const [upcomingPrograms, setUpcomingPrograms] = useState<any[]>([]);
 
   useEffect(() => {
     const now = new Date();
     const twoMonthsLater = new Date(now);
     twoMonthsLater.setMonth(now.getMonth() + 2);
 
-    const filtered = cohortsData.filter((cohort: Cohort) => {
-      const start = new Date(cohort.startDate);
+    // Combine all programs from different sources
+    const allPrograms = [
+      ...approvedWorkshops.map(w => ({ 
+        ...w, 
+        program_type: "workshop" 
+      })),
+      ...approvedBootcamps.map(b => ({ 
+        ...b, 
+        program_type: "bootcamp" 
+      })),
+      ...cohortsData.map(c => ({ 
+        ...c, 
+        program_type: "cohort" 
+      })),
+      ...approvedPreviewCohorts.map(p => ({ 
+        ...p, 
+        program_type: "preview-cohort" 
+      })),
+    ];
+
+    // Filter upcoming programs (next 2 months)
+    const filtered = allPrograms.filter((program) => {
+      const start = new Date(program.startDate);
       return start >= now && start <= twoMonthsLater;
     });
 
-    // Custom sort: by date first, then by tag priority
+    // Priority: Workshop → Bootcamp → Cohort → Preview Cohort
     const tagPriority: Record<string, number> = {
-      foundational: 1,
-      applied: 2,
-      industry: 3,
-      // add more tags if needed
+      workshop: 1,
+      bootcamp: 2,
+      cohort: 3,
+      "preview-cohort": 4,
+      "preview cohort": 4,
     };
 
     const sorted = filtered.sort((a, b) => {
@@ -33,13 +60,12 @@ const On_The_Horizon = () => {
         return dateA - dateB; // earlier dates first
       }
 
-      // Same date → sort by tag priority (Foundational → Applied → Industry)
-      const priorityA = tagPriority[a.tag.toLowerCase()] ?? 999;
-      const priorityB = tagPriority[b.tag.toLowerCase()] ?? 999;
+      const priorityA = tagPriority[a.program_type.toLowerCase()] ?? 999;
+      const priorityB = tagPriority[b.program_type.toLowerCase()] ?? 999;
       return priorityA - priorityB;
     });
 
-    setUpcomingCohorts(sorted);
+    setUpcomingPrograms(sorted);
   }, []);
 
   return (
@@ -56,12 +82,12 @@ const On_The_Horizon = () => {
           <div className="bg-[#f6f5ec] py-16 lg:py-20 shadow-2xl">
             <ScrollAnimation delay={0.2}>
               <div className="max-w-7xl mx-auto px-4 lg:px-8">
-                {upcomingCohorts.length > 0 ? (
-                  <OfferCarousel cohorts={upcomingCohorts} />
+                {upcomingPrograms.length > 0 ? (
+                  <OfferCarousel cohorts={upcomingPrograms} />
                 ) : (
                   <div className="text-center py-32">
                     <p className="text-[#294b3c] text-2xl font-medium">
-                      No upcoming cohorts in the next 2 months
+                      No upcoming programs in the next 2 months
                     </p>
                   </div>
                 )}

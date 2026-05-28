@@ -13,7 +13,7 @@ const structuredData = {
       "url": "https://v18hub.in",
       "description":
         "v18Hub is India's project-based learning platform connecting learners, mentors, educators, and industry partners through real-world AI and data science cohorts. Cohort-based, research-integrated, and portfolio-focused.",
-      "sameAs": ["https://v18hub.in/why-us", "https://v18hub.in/explore-cohorts"],
+      "sameAs": ["https://v18hub.in/why-us", "https://v18hub.in/programs"],
       "knowsAbout": [
         "Project-based learning",
         "AI education",
@@ -50,7 +50,7 @@ const structuredData = {
           "acceptedAnswer": {
             "@type": "Answer",
             "text":
-              "Each cohort starts with a real industry problem. Learners build hands-on from Day 1 with weekly milestones, curated research reading, and mentorship from experts. Work is documented on GitHub and certified for outcomes.",
+              "Each program starts with a real industry problem. Learners build hands-on from Day 1 with weekly milestones, curated research reading, and mentorship from experts. Work is documented on GitHub and certified for outcomes.",
           },
         },
         {
@@ -73,7 +73,7 @@ const Why_Us = () => {
     {
       img: "/Images/forecasting_and_timeseries.jpg",
       title: "Start with Real Problems",
-      desc: "Each cohort is built around actual industry challenges or real-world data, not textbook simulations.",
+      desc: "Each program is built around actual industry challenges or real-world data, not textbook simulations.",
     },
     {
       img: "/Images/partners_track_project.png",
@@ -123,6 +123,11 @@ const Why_Us = () => {
       body: "Our learners include both undergraduate students and professionals with decades of industry experience, bringing meaningful real-world context into a collaborative learning environment.",
     },
     {
+      icon: "🧩",
+      title: "Industry-Aligned Learning & Internship Support",
+      body: "v18hub actively collaborates with industry partners to understand real hiring expectations and programs requirements. Committed learners receive internship support, interview opportunities, and exposure to real-world engineering feedback while working on practical AI programs."
+    },
+    {
       icon: "🔄",
       title: "Continuous Learning Loop",
       body: "Every cohort ends with open research topics. Each ending is a new beginning, keeping learners engaged in a cycle of growth long after the cohort closes.",
@@ -153,8 +158,8 @@ const Why_Us = () => {
   // From pitch deck Slide 5 — traction numbers
   const traction = [
     { stat: "60+",   label: "Industry leaders surveyed" },
-    { stat: "200+",  label: "Students across 18 colleges" },
-    { stat: "100+",  label: "Students via webinars" },
+    { stat: "500+",  label: "Students across 18 colleges" },
+    { stat: "300+",  label: "Students via webinars" },
     { stat: "3",     label: "Active cohorts running" },
   ];
 
@@ -165,9 +170,9 @@ const Why_Us = () => {
       accent: "#6A1F1B",
       points: [
         "Resume-grade project portfolios with real-world AI/ML stacks",
-        "Confidence with modern AI tools, not just theory",
-        "Research mindset and publication potential",
-        "Foundational cohort for hesitant starters, at refundable pricing",
+        "Workshops and bootcamps for building fundamentals",
+        "Confidence with modern AI tools, Research mindset and publication potential",
+        "Preview cohort for hesitant starters, at refundable pricing",
       ],
     },
     {
@@ -220,7 +225,7 @@ const Why_Us = () => {
         <meta property="og:title" content="Why v18hub? | India's Project-Based AI Learning Platform" />
         <meta
           property="og:description"
-          content="Knowledge grows through DOING. v18hub connects learners, mentors, educators, and industry through real-world AI cohorts. Resume-grade projects, not just certificates."
+          content="Knowledge grows through DOING. v18hub connects learners, mentors, educators, and industry through different AI programs. Resume-grade projects, not just certificates."
         />
         <meta property="og:site_name" content="v18hub" />
 
@@ -229,7 +234,7 @@ const Why_Us = () => {
         <meta name="twitter:title" content="Why v18hub? | India's Project-Based AI Learning Platform" />
         <meta
           name="twitter:description"
-          content="Knowledge grows through DOING. v18hub connects learners, mentors, educators, and industry through real-world AI cohorts. Resume-grade projects, not just certificates."
+          content="Knowledge grows through DOING. v18hub connects learners, mentors, educators, and industry through different AI programs. Resume-grade projects, not just certificates."
         />
 
         {/* Robots */}
@@ -384,7 +389,9 @@ const Why_Us = () => {
                 Through collaborative, hands-on cohorts, <span className="font-semibold">students build end-to-end
                 solutions, document their work like real engineers,</span> and graduate with portfolios that
                 demonstrate practical skills, not just certificates.
-                <br /><br />
+                <br />
+                We also offer <span className="font-semibold">workshops and bootcamps </span> designed to help learners build strong core concepts before 
+                progressing to full cohort programs. <br /><br />
                 Our model is{" "}
                 <span className="font-semibold">Cohort-Based, Research-Integrated, Portfolio-Focused</span> and
                  our mission is to <span className="font-semibold">empower the next generation of AI talent
@@ -631,10 +638,10 @@ const Why_Us = () => {
             <div className="w-full md:w-[50%] flex items-center">
               <div className="text-left">
                 <p className="text-base md:text-lg leading-relaxed text-[#294b3c]">
-                  At <strong className="font-bold">v18Hub</strong>, every cohort creates ripple effects. Students who complete
-                  a programme often return as peer mentors, helping the next batch under expert supervision.
+                  At <strong className="font-bold">v18Hub</strong>, every program creates ripple effects. Students who complete
+                  a program often return as peer mentors, helping the next batch under expert supervision.
                   <br /><br />
-                  Each cohort includes research-driven topics that encourage collaboration, exploration, and continuous learning.
+                  Workshops and bootcamps builds stronger foundations, whereas each cohort includes research-driven topics that encourage collaboration, exploration, and continuous learning.
                   The <strong className="font-bold">Research-to-Product pipeline</strong> means every ending is a new
                   beginning, ideas from one cohort become the foundation of the next.
                   <br /><br />
@@ -651,7 +658,7 @@ const Why_Us = () => {
         ════════════════════════════════════════════════════════════════════ */}
         <section
           className="py-[10vh] text-center flex flex-col items-center justify-center gap-6"
-          aria-label="Join v18Hub — explore cohorts and start building"
+          aria-label="Join v18Hub — explore programs and start building"
         >
           <p className="text-xs font-semibold tracking-[3px] uppercase text-[#546f61]">
             Ready to build?
@@ -666,11 +673,11 @@ const Why_Us = () => {
           </p>
           <div className="flex flex-wrap gap-5 mt-5 justify-center">
             <Link
-              to="/explore-cohorts"
+              to="/programs"
               className="inline-flex font-medium items-center rounded-lg bg-[#546f61] px-6 py-3 text-[#f6f5ec] justify-center hover:bg-[#294b3c] active:scale-95 transition-transform"
-              aria-label="Explore all v18Hub cohorts - foundational, applied, and industry programs"
+              aria-label="Explore all v18Hub programs"
             >
-              Explore Cohorts
+              Explore Programs
             </Link>
           </div>
         </section>

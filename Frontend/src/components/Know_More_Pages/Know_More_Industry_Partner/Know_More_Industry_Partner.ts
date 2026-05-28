@@ -39,14 +39,13 @@ export const Know_More_IndustryPartner = {
     {
       inner_title: "Engage with Cohorts",
       inner_desc:
-        "Interact with learners and mentors as they work on your problem. Cohorts run through structured weekly milestones, you can stay involved throughout, review progress and provide feedback, or engage only at final evaluations. Either way, you see exactly how candidates think and build.",
-      img: "/Images/industry_partner.jpg",
+        "Interact with learners and mentors as they work on your problem. Cohorts run through structured weekly milestones, allowing you to review progress, provide technical feedback, and share insights on how learning quality and industry readiness can be improved. \n You can stay involved throughout the cohort or engage during final evaluations based on your preference.",      img: "/Images/industry_partner.jpg",
       img_alt: "Industry partner engaging with AI learners and reviewing project progress on v18hub",
     },
     {
       inner_title: "Continue the Partnership",
       inner_desc:
-        "At the end of the cohort, the prototype built by learners is delivered in its current form. The partnership can then continue through collaborative development toward a full-scale solution or through direct talent engagement by hiring the trained learners. Some of our cohort learners have already represented their work at the GHCI-2025 and attended workshops run by IISc.",
+        "At the end of the cohort, the prototype built by learners is delivered in its current form. \n The partnership can then continue through collaborative development toward a full-scale solution or through direct talent engagement by hiring the trained learners.",
       img: "/Images/track_projects.png",
       img_alt: "Industry partner hiring cohort graduates or continuing AI project development with v18hub",
     },

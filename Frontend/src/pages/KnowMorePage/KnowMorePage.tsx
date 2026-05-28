@@ -1,24 +1,24 @@
 // src/pages/KnowMorePage.tsx
 import { Helmet } from '@vuer-ai/react-helmet-async';
+import { useLocation, Link } from "react-router-dom";
 import { Know_More_Educator } from "../../components/Know_More_Pages/Know_More_Educator/Know_More_Educator";
 import { Know_More_Learner } from "../../components/Know_More_Pages/Know_More_Learner/Know_More_Learner";
 import { Know_More_IndustryPartner } from "../../components/Know_More_Pages/Know_More_Industry_Partner/Know_More_Industry_Partner";
 import { Know_More_Mentor } from "../../components/Know_More_Pages/Know_More_Mentor/Know_More_Mentor";
 import { knowMoreSEO } from "../seo/knowMoreSEO";
-import { useLocation, Link } from "react-router-dom";
 
 const KnowMorePage = () => {
   const location = useLocation();
 
   const Know_More_Data: any = (() => {
     switch (location.pathname) {
-      case "/ourcommunity/learners":
+      case "/our-community/learners":
         return { ...Know_More_Learner, role: "Learners" };
-      case "/ourcommunity/educators":
+      case "/our-community/educators":
         return { ...Know_More_Educator, role: "Educators" };
-      case "/ourcommunity/mentors":
+      case "/our-community/mentors":
         return { ...Know_More_Mentor, role: "Mentors" };
-      case "/ourcommunity/industry-partners":
+      case "/our-community/industry-partners":
         return { ...Know_More_IndustryPartner, role: "Industry Partners" };
       default:
         return null;
@@ -64,7 +64,6 @@ const KnowMorePage = () => {
       )}
 
       {/* ── PAGE ─────────────────────────────────────────────────────────── */}
-      {/* FIX: was #f4f2ee (off-brand near-miss) — corrected to #f6f5ec */}
       <div className="font-open-sans bg-[#f6f5ec] min-h-screen w-full flex justify-center py-16">
         <div className="w-full max-w-6xl px-6">
 
@@ -174,8 +173,6 @@ const KnowMorePage = () => {
                 <div className="h-[180px] w-[300px] sm:w-[20vw] sm:h-[15vw] bg-[#a5b6ae] flex items-center justify-center rounded-2xl overflow-hidden flex-shrink-0 shadow-md">
                   <img
                     src={each.img}
-                    // FIX: was alt={each.inner_title} (generic step name)
-                    // Now uses descriptive img_alt from data file
                     alt={each.img_alt || each.inner_title}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -187,7 +184,7 @@ const KnowMorePage = () => {
                   <h3 className="font-semibold text-[#294b3c] text-xl sm:text-2xl mb-3">
                     {each.inner_title}
                   </h3>
-                  <p className="text-[#546f61] text-lg sm:text-xl leading-relaxed">
+                  <p className="text-[#546f61] text-lg sm:text-xl leading-relaxed whitespace-pre-line">
                     {each.inner_desc}
                   </p>
                 </div>
@@ -199,7 +196,6 @@ const KnowMorePage = () => {
           {Know_More_Data.foundational_note && (
             <div className="mt-16 bg-white border border-[#a5b6ae] rounded-2xl px-8 py-7 flex flex-col md:flex-row items-start md:items-center gap-6 shadow-sm">
               <div className="flex-1">
-                {/* h3 appropriate here — subordinate to the h2 "How does it work?" above */}
                 <h3 className="font-semibold text-[#294b3c] text-xl mb-2">
                   {Know_More_Data.foundational_note.heading}
                 </h3>
@@ -207,13 +203,13 @@ const KnowMorePage = () => {
                   {Know_More_Data.foundational_note.desc}
                 </p>
               </div>
-              <Link
+              {/* <Link
                 to={Know_More_Data.foundational_note.cta_href}
                 aria-label="Learn about the v18hub Foundational Cohort for new AI learners"
                 className="inline-flex font-medium items-center rounded-lg bg-[#294b3c] px-6 py-3 text-[#f6f5ec] justify-center hover:bg-[#546f61] active:scale-95 transition-transform flex-shrink-0"
               >
                 {Know_More_Data.foundational_note.cta_label}
-              </Link>
+              </Link> */}
             </div>
           )}
 

@@ -15,7 +15,7 @@ const Middle_Homepage = () => {
         "Don't just learn - build. Solve real-world problems, develop practical skills, and transform yourself from industry-ready to genuinely tech-ready.",
       button1: "Start Learning",
       registration_href: "/registration/learner",
-      knowMore_href: "/ourcommunity/learners"
+      knowMore_href: "/our-community/learners"
     },
     {
       type: "Mentors",
@@ -24,7 +24,7 @@ const Middle_Homepage = () => {
         "Guide. Inspire. Shape the future. Empower learners with your expertise while staying connected to innovation.",
       button1: "Mentor with Us",
       registration_href: "/registration/mentor",
-      knowMore_href: "/ourcommunity/mentors"
+      knowMore_href: "/our-community/mentors"
     },
     {
       type: "Educators",
@@ -33,7 +33,7 @@ const Middle_Homepage = () => {
         "Elevate your curriculum beyond the textbook. Connect your students with hands-on projects and track their growth in a meaningful new way.",
       button1: "Join as an Educator",
       registration_href: "/registration/educator",
-      knowMore_href: "/ourcommunity/educators"
+      knowMore_href: "/our-community/educators"
     },
     {
       type: "Industry Partner",
@@ -42,7 +42,7 @@ const Middle_Homepage = () => {
         "Turn challenges into opportunities. Share real use-cases, get fresh ideas, and co-create with the next generation of passionate learners.",
       button1: "Become a Partner",
       registration_href: "/registration/industry_partner",
-      knowMore_href: "/ourcommunity/industry-partners"
+      knowMore_href: "/our-community/industry-partners"
     },
   ];
 

@@ -121,7 +121,7 @@ const Our_Story = () => {
               <div className="bg-[#a5b6ae] p-6 rounded-xl shadow-md">
                 <h3 className="text-[#294b3c] font-semibold text-xl mb-3">Community</h3>
                 <p>
-                  We grow together. Our cohorts thrive on collaboration, mentorship, and peer learning, creating a self-sustaining circle of builders, thinkers, and mentors.
+                  We grow together. Our programs thrive on collaboration, mentorship, and peer learning, creating a self-sustaining circle of builders, thinkers, and mentors.
                 </p>
               </div>
             </div>

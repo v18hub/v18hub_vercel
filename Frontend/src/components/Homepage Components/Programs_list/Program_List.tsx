@@ -16,82 +16,99 @@ const Program_List = () => {
 
   const Programs_List: Program[] = [
     {
-      type_of: "Industry Cohorts",
+      type_of: "Workshops",
       slogan: (
         <>
-          Cohorts built in{" "}
+          Workshops are{" "}
           <strong className="font-bold lg:text-xl">
-            collaboration with industry partners or startups
+            short-duration, beginner-friendly{" "}
           </strong>
-          . Learners work on partner-driven datasets, constraints, and workflows, closely mirroring real-world engineering environments. The focus is on engineering depth, system design, deployment-ready thinking and{" "}
+          learning programs designed to help students explore new domains, build foundational understanding, and gain practical exposure through guided hands-on sessions. They focus on developing{" "}
           <strong className="font-bold lg:text-xl">
-            stands out strongly on your portfolio.
-            <br />
-            Industry Cohorts are priced based on depth, duration, and collaboration.
+            awareness, curiosity, and core problem-solving skills{" "}
           </strong>
+          that prepare learners for deeper technical learning paths.
         </>
       ),
-      href: "/explore-cohorts#industry-cohorts",
+      href: "/programs/workshops",
     },
     {
-      type_of: "Applied Cohorts",
+      type_of: "Bootcamps",
       slogan: (
         <>
-          Production-oriented cohorts where learners{" "}
+          Bootcamps are{" "}
           <strong className="font-bold lg:text-xl">
-            build complete, end-to-end AI systems using real datasets
-          </strong>{" "}
-          and real problem statements. Strong emphasis on system design, engineering depth, and deployment-ready thinking. Each cohort culminates in a production-style project that{" "}
+            structured, intensive{" "}
+          </strong>and,{" "}
           <strong className="font-bold lg:text-xl">
-            significantly strengthens your portfolio
-          </strong>{" "}
-          without direct industry collaboration.{" "}
-          <br />
-          <strong className="font-bold lg:text-xl">
-            Applied Cohorts are priced based on depth, duration, and collaboration.
+            hands-on{" "}
           </strong>
+          learning programs designed to help learners building strong fundamentals in{" "}
+          <strong className="font-bold lg:text-xl">
+            ML, Deep Learning, and Generative AI.{" "}
+          </strong>
+          These programs prepare them with the concepts and practical skills needed to work on real-world applications confidently.
         </>
       ),
-      href: "/explore-cohorts#applied-cohorts",
+      href: "/programs/bootcamps",
     },
     {
-      type_of: "Foundational Cohorts",
+      type_of: "Preview Cohorts",
       slogan: (
         <>
-          Designed to help learners to{" "}
+          Preview Cohorts are very short-duration experiences where learners{" "}
           <strong className="font-bold lg:text-xl">
-            build confidence and learn how to build real AI systems
+             build a part of a real cohort.{" "}
           </strong>
-          . Short, guided, hands-on programs using realistic datasets. No industry partner involved. Each cohort results in a completed mini-project you can{" "}
+          Help learners to understand the {" "}
           <strong className="font-bold lg:text-xl">
-            confidently add to your portfolio
-          </strong>.
+            cohort learning style and collaboration process,
+          </strong> before committing to a full cohort program.
           <br />
           <strong className="font-bold lg:text-xl">
-            👉 Foundational Cohorts have a fixed, affordable price and fully adjustable 
+            👉 Preview Cohorts have a fixed, affordable prices and fully adjustable 
           </strong>
-          {" "}on upgrading to an Applied or Industry Cohort.
+          {" "}on upgrading to Cohort program.
           <br />
-          👉 If a learner is unable to keep up within the first week of the Foundational Cohort,{" "}
+          👉 If a learner is unable to keep up within the first week of the Preview Cohort,{" "}
           <strong className="font-bold lg:text-xl">
             the full fees will be refunded.
           </strong>
         </>
       ),
-      href: "/explore-cohorts#foundational-cohorts",
+      href: "/programs/preview-cohorts",
+    },
+    {
+      type_of: "Cohorts",
+      slogan: (
+        <>
+          Cohorts are industry-oriented programs where learners{" "}
+          <strong className="font-bold lg:text-xl">
+            learn by building complete, end-to-end real AI solutions.
+          </strong>{" "}
+          Focused on <strong className="font-bold lg:text-xl">
+            in-depth learning, practical implementation, teamwork, and hands-on problem solving.{" "}
+          </strong>
+          These programs put strong emphasis on system design, engineering depth, and deployment-ready thinking. Each cohort culminates in a production-style project that{" "}
+          <strong className="font-bold lg:text-xl">
+            significantly strengthens your portfolio.
+          </strong>
+        </>
+      ),
+      href: "/programs/cohorts",
     },
     {
       type_of: "Webinars",
       slogan: (
         <>
-          Quick, interactive sessions (2-3 hours) to {" "}
+          Quick, interactive sessions normally of 1-2 hours to {" "}
           <strong className="font-bold lg:text-xl">
-            spark awareness, simplify concepts, and introduce 
+            spark awareness, simplify concepts, and introduce{" "}
           </strong>
-          you to emerging technologies.
+          you to emerging technologies. Free to attend - the perfect starting point before choosing a deeper program.
         </>
       ),
-      href: "/explore-cohorts#webinars",
+      href: "/programs/webinars",
     },
   ];
 

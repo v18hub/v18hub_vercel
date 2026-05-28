@@ -1,25 +1,28 @@
 // src/components/Footer/Footer.tsx
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
+  const location = useLocation();
+
   const footerSections = [
     {
       title: "Quick Links",
       links: [
         { name: "About Us", path: "/about/our-story" },
         { name: "Contact", path: "/about/contact-us" },
-        { name: "Programs", path: "/explore-cohorts" },
+        { name: "Programs", path: "/programs" },
+        { name: "Our Mentors", path: "/our-mentors" },
         { name: "Why Us", path: "/why-us" },
       ],
     },
     {
       title: "Our Community",
       links: [
-        { name: "Learners", path: "/ourcommunity/learners" },
-        { name: "Educators", path: "/ourcommunity/educators" },
-        { name: "Industry Partners", path: "/ourcommunity/industry-partners" },
-        { name: "Mentors", path: "/ourcommunity/mentors" },
+        { name: "Learners", path: "/our-community/learners" },
+        { name: "Educators", path: "/our-community/educators" },
+        { name: "Industry Partners", path: "/our-community/industry-partners" },
+        { name: "Mentors", path: "/our-community/mentors" },
       ],
     },
     {
@@ -32,10 +35,19 @@ const Footer = () => {
     },
   ];
 
+  // General handler: Reload page if clicking on the current page
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (location.pathname === path) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Optional: smooth scroll to top
+      // window.location.reload(); // Uncomment if you want full reload
+    }
+  };
+
   return (
     <footer className="bg-[#526B61] w-full text-[#f6f5ec] px-6 md:px-16 py-10">
       {/* Top CTA Section */}
-      <div className="bg-[#a5b6ae] py-12 shadow-2xl shadow-[#8d9d95]/20">
+      {/* <div className="bg-[#a5b6ae] py-12 shadow-2xl shadow-[#8d9d95]/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-[#6A1F1B] font-bold text-2xl md:text-3xl leading-tight">
             Let’s build the future of learning together
@@ -46,7 +58,6 @@ const Footer = () => {
             <br className="hidden sm:inline" /> we’d love to connect with you.
           </p>
 
-          {/* Updated Button: Rectangular with rounded corners (matches site style) */}
           <div className="mt-8 flex flex-col sm:flex-row gap-5 items-center justify-center">
             <a
               href="https://forms.gle/4taMerBY4pG1herR7"
@@ -68,7 +79,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pt-10">
@@ -111,6 +122,7 @@ const Footer = () => {
                 <li key={j}>
                   <Link
                     to={link.path}
+                    onClick={(e) => handleLinkClick(e, link.path)}
                     className="text-[#f6f5ec]/80 hover:text-white transition-colors duration-200 block text-[0.95rem]"
                   >
                     {link.name}

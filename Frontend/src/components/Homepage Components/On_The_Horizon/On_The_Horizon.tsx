@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import OfferCarousel from "../../../utils/custom/offer-carousel";
 import { ScrollAnimation } from "../../animations/Scroll_Animation";
-import { cohortsData, type Cohort } from "../../../data/cohorts";
+import { cohortsData, type Cohort } from "../../../data/cohorts_old";
 
 const On_The_Horizon = () => {
   const [upcomingCohorts, setUpcomingCohorts] = useState<Cohort[]>([]);

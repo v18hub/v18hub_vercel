@@ -83,7 +83,7 @@ export const cohortsData: Cohort[] = [
     evaluation workflows, and modern GenAI system design. Students work on a \
     real-world startup funding intelligence application while learning scalable \
     AI engineering and research-oriented workflows.",
-    startDate: "June 10, 2026",
+    startDate: "July 10, 2026",
     duration: "12 Weeks",
     level: "Beginners / Intermediate",
     goal:

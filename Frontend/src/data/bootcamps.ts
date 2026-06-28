@@ -18,7 +18,7 @@ export const bootcampData: Bootcamp[] = [
         through practical implementation. Students learn how to prepare data, train models, evaluate performance, \
         and build end-to-end ML projects while understanding the reasoning \
         behind each step. They learn, collaborate, experiment and present using storytelling skills.",
-    startDate: "June 11, 2026",
+    startDate: "July 11, 2026",
     duration: "4 Week",
     level: "Beginners",
     goal:
@@ -174,7 +174,7 @@ export const bootcampData: Bootcamp[] = [
         through hands-on implementation using TensorFlow and PyTorch. \
         Students learn neural networks, training workflows, CNNs, and model evaluation \
         while building practical deep learning mini-projects.",
-    startDate: "June 11, 2026",
+    startDate: "July 11, 2026",
     duration: "4 Week",
     level: "Beginners",
     goal: [
@@ -320,7 +320,7 @@ export const bootcampData: Bootcamp[] = [
                   understand how modern Generative AI systems work. Students learn \
                   LLM fundamentals, prompting, RAG, AI agents, and multimodal AI \
                   through practical experimentation and industry-style workflows.",
-    startDate: "June 11, 2026",
+    startDate: "July 11, 2026",
     duration: "4 Week",
     level: "Beginners",
     goal: [

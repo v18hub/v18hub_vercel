@@ -18,7 +18,7 @@ export const previewCohortData: PreviewCohort[] = [
       "A 3-week preview cohort focused on the data engineering layer of modern RAG systems. \
       Students learn chunking strategies, embeddings, through hands-on implementation and experimentation."
     ),
-    startDate: "July 15, 2026",
+    startDate: "Aug 15, 2026",
     duration: "3 Weeks",
     level: "Beginners / Intermediate",
     goal:
@@ -122,7 +122,7 @@ export const previewCohortData: PreviewCohort[] = [
     short_description: "Learn how to analyse, augment, and prepare medical image datasets for AI workflows.",
     description: "A 3-week preview cohort focused on the engineering and understanding of medical image datasets. \
     Students learn dataset analysis, visual EDA, augmentation workflows through hands-on development.",
-    startDate: "July 15, 2026",
+    startDate: "Aug 15, 2026",
     duration: "3 Weeks",
     level: "Beginners/Intermediate",
     goal:

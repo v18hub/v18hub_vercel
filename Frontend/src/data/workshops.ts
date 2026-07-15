@@ -25,7 +25,7 @@ export const workshopData: Workshop[] = [
     title: "AI & Data Literacy Kickstart",
     short_description: "Demystify AI. Build curiosity and vocabulary before tools. ",
     description: "This workshop introduces students to the fundamentals of Artificial Intelligence, data, and real-world AI applications. Through interactive discussions, datasets, demos, and collaborative activities, students develop AI awareness, critical thinking, and foundational AI vocabulary before entering technical ML/DL/GenAI programs.",
-    startDate: "July 08, 2026",
+    startDate: "Aug 08, 2026",
     duration: "1 Week",
     level: "Beginners",
     goal: [
@@ -111,7 +111,7 @@ export const workshopData: Workshop[] = [
         hands-on coding practice, debugging exercises, and real-world logic problems.  \
         Instead of memorising syntax, students learn how to think through problems, \
         structure code clearly, and write programs independently with confidence.",
-    startDate: "July 08, 2026",
+    startDate: "Aug 08, 2026",
     duration: "3 Weeks",
     level: "Beginners",
     goal: [

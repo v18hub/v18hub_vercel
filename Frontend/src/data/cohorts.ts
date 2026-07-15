@@ -83,7 +83,7 @@ export const cohortsData: Cohort[] = [
     evaluation workflows, and modern GenAI system design. Students work on a \
     real-world startup funding intelligence application while learning scalable \
     AI engineering and research-oriented workflows.",
-    startDate: "July 10, 2026",
+    startDate: "July 28, 2026",
     duration: "12 Weeks",
     level: "Beginners / Intermediate",
     goal:
@@ -353,7 +353,7 @@ export const cohortsData: Cohort[] = [
     for medical insurance claim automation. Students learn healthcare NLP, \
     document intelligence, agent orchestration, compliance validation, and \
     workflow automation using synthetic healthcare datasets and real-world AI system design practices.",
-    startDate: "July 06, 2026",
+    startDate: "Aug 06, 2026",
     duration: "16 Weeks",
     level: "Beginners/Intermediate",
     goal:
@@ -663,7 +663,7 @@ export const cohortsData: Cohort[] = [
     for medical imaging. Students learn segmentation, classification, \
     Vision Transformers, explainability, evaluation, and deployment \
     through practical experimentation on healthcare imaging datasets.",
-    startDate: "July 06, 2026",
+    startDate: "Aug 06, 2026",
     duration: "14 Weeks",
     level: "Begineers/Intermediate",
     goal:

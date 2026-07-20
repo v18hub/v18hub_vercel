@@ -336,7 +336,7 @@ export const cohortsData: Cohort[] = [
       "RAG",
       "LLMs"
     ],
-    fees: 5499,
+    fees: 7499,
     current_version: "v1.0",
     is_approved: true,
     created_at: "2025-10-14T00:00:00Z",
@@ -939,7 +939,7 @@ export const cohortsData: Cohort[] = [
       "Cloud Deployment",
     ],
     program_card_skill_tags: ["Medical Imaging", "Deep Learning"],
-    fees: 7499,
+    fees: 9499,
     current_version: "v1.0",
     is_approved: true,
     created_at: "2025-10-14T00:00:00Z",
